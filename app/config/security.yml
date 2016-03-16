@@ -3,8 +3,10 @@ security:
         Symfony\Component\Security\Core\User\User: plaintext
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+                # Un admin hérite des droits d'auteur et de modérateur
+        OLE_ADMIN:       [ROLE_AUTEUR, ROLE_MODERATEUR]
+                # On garde ce rôle superadmin, il nous resservira par la suite
+        OLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
         in_memory:
@@ -27,5 +29,13 @@ security:
             logout:
                 path:   logout
                 target: /platform
+        # On crée un pare-feu uniquement pour le formulaire
+        main_login:
+            # Cette expression régulière permet de prendre /login (mais pas /login_check !)
+            pattern:   ^/login$
+            anonymous: true # On autorise alors les anonymes sur ce pare-feu
+        main:
+            pattern:   ^/
+            anonymous: false
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
