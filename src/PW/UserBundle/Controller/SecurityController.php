@@ -26,4 +26,25 @@ class SecurityController extends Controller
             'error'         => $authenticationUtils->getLastAuthenticationError(),
         ));
     }
+    public function indexAction()
+    {
+        return $this->render('PWUserBundle:Security:index.html.twig');
+    }
+
+    public function profileAction()
+{
+    return $this->render('PWUserBundle:Profile:profile.html.twig');
+}
+    public function catalogueAction()
+    {
+        $listAdverts = array(
+            array('id' => 2, 'titre' => 'EASY PORTFOLIO', 'user' => 'Bobby','description' => 'Bienvenu sur mon ePortFolio'),
+            array('id' => 5, 'titre' => 'Medium Portfolio', 'user' => 'Jean Mi', 'description' => 'Jaime les enfant'),
+            array('id' => 9, 'titre' => 'hard portfolio', 'user' => 'Poney', 'description' => 'WHUUUUhhuuuuu')
+        );
+
+        return $this->render('PWUserBundle:Catalogue:catalogue.html.twig', array(
+            'listAdverts' => $listAdverts
+        ));
+    }
 }

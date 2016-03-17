@@ -1,0 +1,16 @@
+PW\PortfolioBundle\Entity\Theme:
+    type: entity
+    table: null
+    repositoryClass: PW\PortfolioBundle\Repository\ThemeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nameTheme:
+            type: string
+            length: 255
+            column: Name_Theme
+    lifecycleCallbacks: {  }

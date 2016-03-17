@@ -1,0 +1,24 @@
+PW\PortfolioBundle\Entity\Experience:
+    type: entity
+    table: null
+    repositoryClass: PW\PortfolioBundle\Repository\ExperienceRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        job:
+            type: string
+            length: 255
+            column: Job
+        firm:
+            type: string
+            length: 255
+            column: Firm
+        mission:
+            type: string
+            length: 255
+            column: Mission
+    lifecycleCallbacks: {  }

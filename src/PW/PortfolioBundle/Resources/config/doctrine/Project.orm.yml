@@ -1,0 +1,24 @@
+PW\PortfolioBundle\Entity\Project:
+    type: entity
+    table: null
+    repositoryClass: PW\PortfolioBundle\Repository\ProjectRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nameProject:
+            type: string
+            length: 255
+            column: Name_Project
+        projectDescriptive:
+            type: string
+            length: 255
+            column: Project_Descriptive
+        linkProject:
+            type: string
+            length: 255
+            column: Link_Project
+    lifecycleCallbacks: {  }

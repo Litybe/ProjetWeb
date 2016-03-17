@@ -1,0 +1,15 @@
+PW\PortfolioBundle\Entity\HomePage:
+    type: entity
+    table: null
+    repositoryClass: PW\PortfolioBundle\Repository\HomePageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        homePageDesciptive:
+            type: text
+            column: HomePage_Desciptive
+    lifecycleCallbacks: {  }

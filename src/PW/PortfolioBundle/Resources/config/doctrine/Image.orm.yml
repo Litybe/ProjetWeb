@@ -1,0 +1,20 @@
+PW\PortfolioBundle\Entity\Image:
+    type: entity
+    table: null
+    repositoryClass: PW\PortfolioBundle\Repository\ImageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        srcImage:
+            type: string
+            length: 255
+            column: Src_Image
+        altImage:
+            type: string
+            length: 255
+            column: Alt_Image
+    lifecycleCallbacks: {  }
