@@ -3,6 +3,7 @@
 namespace PW\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="PW\UserBundle\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -52,7 +53,7 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="Pseudo", type="string", length=255)
+     * @ORM\Column(name="Pseudo", type="string", length=255, unique=true)
      */
     private $pseudo;
 
@@ -62,6 +63,11 @@ class User
      * @ORM\Column(name="UserPassword", type="string", length=255)
      */
     private $userPassword;
+
+    /**
+     * @ORM\Column(name="roles", type="array")
+     */
+    private $roles = array();
 
     /**
      * @var bool
@@ -360,5 +366,43 @@ class User
     public function getIsVisbleYear()
     {
         return $this->isVisbleYear;
+    }
+
+    public function getRoles()
+    {
+        // TODO: Implement getRoles() method.
+    }
+
+    public function getPassword()
+    {
+        // TODO: Implement getPassword() method.
+    }
+
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+    }
+
+    public function getUsername()
+    {
+        // TODO: Implement getUsername() method.
+    }
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+    }
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     * @return User
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
     }
 }
