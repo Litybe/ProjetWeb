@@ -1,3 +1,11 @@
 pw_user_homepage:
-    path:     /
+    pattern: /User
     defaults: { _controller: PWUserBundle:Security:index }
+
+pw_user_profile:
+    pattern: /User/Profile
+    defaults: { _controller: PWUserBundle:Security:profile}
+
+pw_user_catalogue:
+    pattern: /User/Catalogue
+    defaults: { _controller: PWUserBundle:Security:catalogue}

@@ -1,0 +1,28 @@
+{% extends'base.html.twig' %}
+
+
+
+{% block title %}Catalogue - {{ parent() }}{% endblock %}
+{% block PageName %}Catalogue{% endblock %}
+{% block PageDescription %}Vous trouverez l'ensemble des ePortfolio créer par les utilisateurs{% endblock %}
+
+
+{% block body %}
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            {% for advert in listAdverts %}
+                <div class="col-md-4">
+                    <h2>{{ advert.titre }}</h2>
+                    <p>{{ advert.user }}</p>
+                    <p>C'est l'article numero : {{ advert.id }}</p>
+                    <p>{{ advert.description }}</p>
+                    <p><a class="btn btn-default" href="#" role="button">Acceder &raquo;</a></p>
+                </div>
+            {% else %}
+                <li>Pas (encore !) d'annonces</li>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
