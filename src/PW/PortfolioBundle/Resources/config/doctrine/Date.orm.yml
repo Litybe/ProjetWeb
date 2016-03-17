@@ -1,0 +1,36 @@
+PW\PortfolioBundle\Entity\Date:
+    type: entity
+    table: null
+    repositoryClass: PW\PortfolioBundle\Repository\DateRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        dateTime:
+            type: datetime
+            nullable: true
+            column: DateTime
+        experience:
+            type: string
+            length: 255
+            nullable: true
+            column: Experience
+        training:
+            type: string
+            length: 255
+            nullable: true
+            column: Training
+        user:
+            type: string
+            length: 255
+            nullable: true
+            column: User
+        project:
+            type: string
+            length: 255
+            nullable: true
+            column: Project
+    lifecycleCallbacks: {  }

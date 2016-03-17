@@ -1,3 +1,7 @@
+pw_portfolio:
+    resource: "@PWPortfolioBundle/Resources/config/routing.yml"
+    prefix:   /test
+
 login:
     pattern:   /login
     defaults:  { _controller: PWUserBundle:Security:login }
