@@ -3,6 +3,7 @@
 namespace PW\PortfolioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use PW\UserBundle\Entity\User;
 
 /**
  * HomePage
@@ -19,6 +20,47 @@ class HomePage
      */
     private $homePageDesciptive;
 
+    /**
+     * @ORM\OneToOne(targetEntity="PW\User\Entity\User", cascade={"persist"})
+     */
+    private $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity="PW\TrainingBundle\Entity\Image", mappedBy="homePage"})
+     */
+    private $image;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage(Image $image)
+    {
+        $this->image = $image;
+    }
 
     /**
      * Get id

@@ -24,6 +24,26 @@ class Image
      */
     private $altImage;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="PW\TrainingBundle\Entity\HomePage", mappedBy="image"})
+     */
+    private $homePage;
+
+    /**
+     * @return mixed
+     */
+    public function getHomePage()
+    {
+        return $this->homePage;
+    }
+
+    /**
+     * @param mixed $homePage
+     */
+    public function setHomePage(HomePage $homePage)
+    {
+        $this->homePage = $homePage;
+    }
 
     /**
      * Get id

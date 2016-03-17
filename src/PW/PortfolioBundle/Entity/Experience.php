@@ -31,6 +31,69 @@ class Experience
 
 
     /**
+     * @ORM\OneToMany(targetEntity="PW\Portfolio\Entity\Adress", mappedBy="experience")
+     */
+    private $adress;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="PW\TrainingBundle\Entity\Skill", cascade={"persist"})
+     */
+    private $skill;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="PW\TrainingBundle\Entity\Date", cascade={"persist"})
+     */
+    private $date;
+
+    /**
+     * @return mixed
+     */
+    public function getSkill()
+    {
+        return $this->skill;
+    }
+
+    /**
+     * @param mixed $skill
+     */
+    public function setSkill(Skill $skill)
+    {
+        $this->skill = $skill;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param mixed $date
+     */
+    public function setDate(Date $date)
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdress()
+    {
+        return $this->adress;
+    }
+
+    /**
+     * @param mixed $adress
+     */
+    public function setAdress(Address $adress)
+    {
+        $this->adress = $adress;
+    }
+
+    /**
      * Get id
      *
      * @return integer 

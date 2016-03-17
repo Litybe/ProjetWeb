@@ -3,6 +3,7 @@
 namespace PW\PortfolioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use PW\UserBundle\Entity\User;
 
 /**
  * Theme
@@ -19,6 +20,26 @@ class Theme
      */
     private $nameTheme;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="PW\UserBundle\Entity\User", mappedBy="theme"})
+     */
+    private $user;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+    }
 
     /**
      * Get id

@@ -35,19 +35,46 @@ class Address
     private $city;
 
     /**
-     * @ORM\OneToOne(targetEntity="PW\User\Entity\User", cascade={"persist"})
-     */
-    private $user;
-
-    /**
-     * @ORM\OneToOne(targetEntity="PW\User\Entity\Experience", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="PW\TrainingBundle\Entity\Experience", mappedBy="address")
      */
     private $experience;
 
     /**
-     * @ORM\OneToOne(targetEntity="PW\User\Entity\Training", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="PW\TrainingBundle\Entity\Training", mappedBy="address")
      */
     private $training;
+
+    /**
+     * @return mixed
+     */
+    public function getExperience()
+    {
+        return $this->experience;
+    }
+
+    /**
+     * @param mixed $experience
+     */
+    public function setExperience(Experience $experience)
+    {
+        $this->experience = $experience;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTraining()
+    {
+        return $this->training;
+    }
+
+    /**
+     * @param mixed $training
+     */
+    public function setTraining(Training $training)
+    {
+        $this->training = $training;
+    }
 
     /**
      * Get id

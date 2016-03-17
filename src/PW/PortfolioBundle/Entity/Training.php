@@ -35,14 +35,9 @@ class Training
     private $date;
 
     /**
-     * @ORM\OneToOne(targetEntity="PW\Portfolio\Entity\Adress", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="PW\Portfolio\Entity\Adress", cascade={"persist"})
      */
     private $adress;
-
-    /**
-     * @ORM\OneToOne(targetEntity="PW\User\Entity\User", cascade={"persist"})
-     */
-    private $user;
 
     public function __construct()
     {
@@ -156,7 +151,7 @@ class Training
      * @param string $adress
      * @return Training
      */
-    public function setAdress($adress)
+    public function setAdress(Address $adress)
     {
         $this->adress = $adress;
 
@@ -172,6 +167,12 @@ class Training
     {
         return $this->adress;
     }
+    
+    /**
+     * @var string
+     */
+    private $user;
+
 
     /**
      * Set user

@@ -20,22 +20,7 @@ class Date
     private $dateTime;
 
     /**
-     * @ORM\OneToOne(targetEntity="PW\User\Entity\Expérience", cascade={"persist"})
-     */
-    private $experience;
-
-    /**
-     * @ORM\OneToOne(targetEntity="PW\User\Entity\Training", cascade={"persist"})
-     */
-    private $training;
-
-    /**
-     * @ORM\OneToOne(targetEntity="PW\User\Entity\User", cascade={"persist"})
-     */
-    private $user;
-
-    /**
-     * @var string
+     * @ORM\ManyToOne(targetEntity="PW\Portfolio\Entity\Project", mappedBy="address")
      */
     private $project;
 
@@ -77,6 +62,45 @@ class Date
     {
         return $this->dateTime;
     }
+
+    /**
+     * Set project
+     *
+     * @param string $project
+     * @return Date
+     */
+    public function setProject(Project $project)
+    {
+        $this->project = $project;
+
+        return $this;
+    }
+
+    /**
+     * Get project
+     *
+     * @return string 
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
+
+    /**
+     * @var string
+     */
+    private $experience;
+
+    /**
+     * @var string
+     */
+    private $training;
+
+    /**
+     * @var string
+     */
+    private $user;
+
 
     /**
      * Set experience
@@ -145,28 +169,5 @@ class Date
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * Set project
-     *
-     * @param string $project
-     * @return Date
-     */
-    public function setProject($project)
-    {
-        $this->project = $project;
-
-        return $this;
-    }
-
-    /**
-     * Get project
-     *
-     * @return string 
-     */
-    public function getProject()
-    {
-        return $this->project;
     }
 }

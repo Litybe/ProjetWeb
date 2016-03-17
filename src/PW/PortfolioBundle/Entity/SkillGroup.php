@@ -19,6 +19,26 @@ class SkillGroup
      */
     private $nameSkillGroup;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="PW\Portfolio\Entity\Skill", cascade={"persist"})
+     */
+    private $skill;
+
+    /**
+     * @return mixed
+     */
+    public function getSkill()
+    {
+        return $this->skill;
+    }
+
+    /**
+     * @param mixed $skill
+     */
+    public function setSkill(Skill $skill)
+    {
+        $this->skill = $skill;
+    }
 
     /**
      * Get id

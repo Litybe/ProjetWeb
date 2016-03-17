@@ -24,7 +24,6 @@ class Skill
      */
     private $skillMastery;
 
-
     /**
      * Get id
      *

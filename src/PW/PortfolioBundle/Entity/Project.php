@@ -29,6 +29,47 @@ class Project
      */
     private $linkProject;
 
+    /**
+     * @ORM\OneToMany(targetEntity="PW\Portfolio\Entity\Date", mappedBy="project")
+     */
+    private $date;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="PW\Portfolio\Entity\Image", cascade={"persist"})
+     */
+    private $image;
+
+    /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param mixed $date
+     */
+    public function setDate(Date $date)
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage(Image $image)
+    {
+        $this->image = $image;
+    }
 
     /**
      * Get id
