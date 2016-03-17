@@ -1,0 +1,20 @@
+PW\PortfolioBundle\Entity\Skill:
+    type: entity
+    table: null
+    repositoryClass: PW\PortfolioBundle\Repository\SkillRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nameSkill:
+            type: string
+            length: 255
+            column: Name_Skill
+        skillMastery:
+            type: string
+            length: 255
+            column: Skill_Mastery
+    lifecycleCallbacks: {  }

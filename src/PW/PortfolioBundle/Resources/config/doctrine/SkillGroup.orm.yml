@@ -1,0 +1,16 @@
+PW\PortfolioBundle\Entity\SkillGroup:
+    type: entity
+    table: null
+    repositoryClass: PW\PortfolioBundle\Repository\SkillGroupRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nameSkillGroup:
+            type: string
+            length: 255
+            column: Name_SkillGroup
+    lifecycleCallbacks: {  }

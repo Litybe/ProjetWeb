@@ -1,0 +1,27 @@
+PW\PortfolioBundle\Entity\Address:
+    type: entity
+    table: null
+    repositoryClass: PW\PortfolioBundle\Repository\AddressRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        address:
+            type: string
+            length: 255
+            column: Address
+        number:
+            type: string
+            length: 255
+            column: Number
+        zipCode:
+            type: integer
+            column: ZipCode
+        city:
+            type: string
+            length: 255
+            column: City
+    lifecycleCallbacks: {  }
