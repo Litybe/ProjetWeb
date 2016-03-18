@@ -13,7 +13,7 @@ use PW\PortfolioBundle\Entity\Skill;
 use PW\PortfolioBundle\Entity\SkillGroup;
 use PW\PortfolioBundle\Entity\Theme;
 use PW\PortfolioBundle\Entity\Training;
-use Symfony\Component\Security\Core\User\UserInterface;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User
@@ -21,7 +21,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="PW\UserBundle\Repository\UserRepository")
  */
-class User implements UserInterface
+class User extends BaseUser
 {
     /**
      * @var int
@@ -30,7 +30,7 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -58,7 +58,7 @@ class User implements UserInterface
      *
      * @ORM\Column(name="Email", type="string", length=255)
      */
-    private $email;
+    private $emailUser;
 
     /**
      * @var string
@@ -77,7 +77,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(name="roles", type="array")
      */
-    private $roles = array();
+    //private $rolesUser = array();
 
     /**
      * @var bool
@@ -410,12 +410,12 @@ class User implements UserInterface
      * @param string $email
      * @return User
      */
-    public function setEmail($email)
+    public function setEmail($emailUser)
     {
-        $this->email = $email;
+        $this->emailUser = $emailUser;
 
         return $this;
-    }
+    }*/
 
     /**
      * Get email
@@ -424,7 +424,7 @@ class User implements UserInterface
      */
     public function getEmail()
     {
-        return $this->email;
+        return $this->emailUser;
     }
 
     /**
@@ -588,40 +588,15 @@ class User implements UserInterface
         return $this->isVisbleYear;
     }
 
-    public function getRoles()
-    {
-        // TODO: Implement getRoles() method.
-    }
-
-    public function getPassword()
-    {
-        // TODO: Implement getPassword() method.
-    }
-
-    public function getSalt()
-    {
-        // TODO: Implement getSalt() method.
-    }
-
-    public function getUsername()
-    {
-        // TODO: Implement getUsername() method.
-    }
-
-    public function eraseCredentials()
-    {
-        // TODO: Implement eraseCredentials() method.
-    }
-
     /**
      * Set roles
      *
      * @param array $roles
      * @return User
      */
-    public function setRoles($roles)
+  /*  public function setRoles($roles)
     {
-        $this->roles = $roles;
+        $this->rolesUser = $roles;
 
         return $this;
     }
