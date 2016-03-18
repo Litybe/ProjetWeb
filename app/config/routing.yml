@@ -1,6 +1,6 @@
 pw_portfolio:
     resource: "@PWPortfolioBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /portfolio
 
 login:
     pattern:   /login
