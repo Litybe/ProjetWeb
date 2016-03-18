@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6744a6a7-1b6b-4c18-8dc7-3e2cb27f5dd8" name="Default" comment="Création des form builders.">
+    <list default="true" id="6744a6a7-1b6b-4c18-8dc7-3e2cb27f5dd8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/PortfolioBundle/Controller/PortfolioController.php" afterPath="$PROJECT_DIR$/src/PW/PortfolioBundle/Controller/PortfolioController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/PortfolioBundle/Form/TrainingType.php" afterPath="$PROJECT_DIR$/src/PW/PortfolioBundle/Form/TrainingType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/PortfolioBundle/Resources/views/Forms/training.html.twig" afterPath="$PROJECT_DIR$/src/PW/PortfolioBundle/Resources/views/Forms/training.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/PortfolioBundle/Resources/views/Information/information.html.twig" afterPath="$PROJECT_DIR$/src/PW/PortfolioBundle/Resources/views/Information/information.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/UserBundle/Controller/SecurityController.php" afterPath="$PROJECT_DIR$/src/PW/UserBundle/Controller/SecurityController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/UserBundle/Resources/views/index.html.twig" afterPath="$PROJECT_DIR$/src/PW/UserBundle/Resources/views/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/UserBundle/Resources/views/test/test.html.twig" afterPath="$PROJECT_DIR$/src/PW/UserBundle/Resources/views/test/test.html.twig" />
     </list>
     <ignored path="ProjetWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1061,11 +1054,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Resources/views/base.html.twig</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/PW/PortfolioBundle/Resources/config/routing.yml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/PW/UserBundle/Controller/SecurityController.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/PW/UserBundle/Resources/config/routing.yml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -1073,7 +1061,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/PW/UserBundle/Resources/views/test/test.html.twig</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -1081,6 +1068,8 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/PW/UserBundle/Resources/views/Connexion/connexion.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/PW/UserBundle/Resources/views/Connexion/connexion.js</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -1245,7 +1234,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458296023540</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Création des form builders.">
+      <created>1458316533054</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1458316533054</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1254,6 +1249,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1796875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826748" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867885" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826748" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1263,7 +1259,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32826748" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
