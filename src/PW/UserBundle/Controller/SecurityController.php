@@ -28,7 +28,7 @@ class SecurityController extends Controller
     }
     public function indexAction()
     {
-        return $this->render('PWUserBundle:Security:index.html.twig');
+        return $this->render('PWUserBundle::index.html.twig');
     }
 
     public function profileAction()
@@ -51,5 +51,10 @@ class SecurityController extends Controller
         return $this->render('PWUserBundle:Catalogue:catalogue.html.twig', array(
             'listAdverts' => $listAdverts
         ));
+    }
+
+    public function connexionAction()
+    {
+        return $this->render('PWUserBundle:Connexion:connexion.html.twig');
     }
 }

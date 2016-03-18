@@ -1,7 +1,19 @@
 pw_portfolio_homepage:
     path:     /
-    defaults: { _controller: PWPortfolioBundle:Portfolio:index }
+    defaults: { _controller: PWPortfolioBundle:Portfolio:test }
 
 pw_portfolio_home:
     path: /portfolio
     defaults: { _controller: PWPortfolioBundle:Portfolio:index }
+
+pw_portfolio_information:
+    path: /portfolio/information
+    defaults: { _controller: PWPortfolioBundle:Portfolio:information }
+
+pw_portfolio_introduction:
+    path: /portfolio/introduction
+    defaults: { _controller: PWPortfolioBundle:Portfolio:introduction }
+
+pw_portfolio_ergonomie:
+    path: /portfolio/ergonomie
+    defaults: { _controller: PWPortfolioBundle:Portfolio:ergonomie }

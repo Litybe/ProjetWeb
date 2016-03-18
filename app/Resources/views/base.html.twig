@@ -28,7 +28,7 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href={{ path('pw_user_catalogue') }}>Catalogue</a></li>
-                    <li><a href={{ path('pw_portfolio_home') }}>Connexion</a></li>
+                    <li><a href={{ path('pw_user_connexion') }}>Connexion</a></li>
                     <li><a href={{ path('pw_user_profile') }}>Profile</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon portfolio <span class="caret"></span></a>
@@ -36,13 +36,17 @@
                             <li><a href={{ path('pw_portfolio_home') }}>Home</a></li>
                             <li role="separator" class="divider"></li>
                             <li class="dropdown-header">Edit</li>
-                            <li><a href="#">Introduction</a></li>
-                            <li><a href="#">Information</a></li>
-                            <li><a href="#">Ergonomie</a></li>
+                            <li><a href={{ path('pw_portfolio_introduction') }}>Introduction</a></li>
+                            <li><a href={{ path('pw_portfolio_information') }}>Information</a></li>
+                            <li><a href={{ path('pw_portfolio_ergonomie') }}>Ergonomie</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">Aperçu</a></li>
+                            <li><a href="#Apercu">Aperçu</a></li>
                         </ul>
                     </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href={{ path('pw_user_connexion') }}>PSEUDO</a></li>
                 </ul>
             </div>
         </div>

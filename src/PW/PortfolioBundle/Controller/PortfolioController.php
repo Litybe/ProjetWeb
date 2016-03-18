@@ -1,6 +1,6 @@
 <?php
 
-namespace PW\UserBundle\Controller;
+namespace PW\PortfolioBundle\Controller;
 
 use PW\PortfolioBundle\Entity\Training;
 use PW\PortfolioBundle\Form\TrainingType;
@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PortfolioController extends Controller
 {
-    public function indexAction(Request $request)
+    public function testAction(Request $request)
     {
         $training = new Training();
         $form = $this->get('form.factory')->create(new TrainingType(), $training);
@@ -24,5 +24,22 @@ class PortfolioController extends Controller
         return $this->render('PWPortfolioBundle:Forms:training.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+
+    public function indexAction()
+    {
+        return $this->render('PWPortfolioBundle:Home:editHome.html.twig');
+    }
+    public function informationAction()
+    {
+        return $this->render('PWPortfolioBundle:Information:information.html.twig');
+    }
+    public function introductionAction()
+    {
+        return $this->render('PWPortfolioBundle:Introduction:introduction.html.twig');
+    }
+    public function ergonomieAction()
+    {
+        return $this->render('PWPortfolioBundle:Ergonomie:ergonomie.html.twig');
     }
 }

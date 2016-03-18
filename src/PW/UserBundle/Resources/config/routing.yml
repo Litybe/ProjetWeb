@@ -9,3 +9,7 @@ pw_user_profile:
 pw_user_catalogue:
     pattern: /User/Catalogue
     defaults: { _controller: PWUserBundle:Security:catalogue}
+
+pw_user_connexion:
+    pattern: /User/Connexion
+    defaults: { _controller: PWUserBundle:Security:connexion}
