@@ -1,4 +1,4 @@
-{% extends'base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 
 
@@ -10,13 +10,7 @@
 
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>TEST</h1>
-            </div>
-        </div>
-    </div>
+    {{ include ("PWPortfolioBundle:Forms:training.html.twig") }}
 {% endblock %}
 
 

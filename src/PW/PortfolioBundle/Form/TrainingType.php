@@ -24,6 +24,7 @@ class TrainingType extends AbstractType
             ->add('date',                   new Date())
             ->add('address',                new Address())
             ->add('validate',               'submit')
+            ->getForm()
         ;
     }
     

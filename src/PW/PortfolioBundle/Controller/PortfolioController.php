@@ -14,16 +14,20 @@ class PortfolioController extends Controller
         $training = new Training();
         $form = $this->get('form.factory')->create(new TrainingType(), $training);
 
-        if($form->handleRequest($request)->isValid()){
+        if ($form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($training);
             $em->flush();
 
-            $request->getSession()->getFlashBag->add('notice', 'Training added');
+            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+
+            return $this->redirect($this->generateUrl('pw_user_test'));
         }
+
         return $this->render('PWPortfolioBundle:Forms:training.html.twig', array(
             'form' => $form->createView(),
         ));
+
     }
 
     public function indexAction()

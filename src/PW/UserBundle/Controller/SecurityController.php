@@ -5,7 +5,8 @@ namespace PW\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
+use PW\PortfolioBundle\Entity\Training;
+use PW\PortfolioBundle\Form\TrainingType;
 
 class SecurityController extends Controller
 {
@@ -58,8 +59,23 @@ class SecurityController extends Controller
         return $this->render('PWUserBundle:Connexion:connexion.html.twig');
     }
 
-    public function testAction()
+    public function testAction(Request $request)
     {
-        return $this->render('PWUserBundle:test:test.html.twig');
+        $training = new Training();
+        $form = $this->get('form.factory')->create(new TrainingType(), $training);
+
+        if ($form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($training);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+
+            return $this->redirect($this->generateUrl('pw_user_test'));
+        }
+
+        return $this->render('PWUserBundle:test:test.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 }
