@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6744a6a7-1b6b-4c18-8dc7-3e2cb27f5dd8" name="Default" comment="ajout navbar">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PW/PortfolioBundle/Resources/views/editNavbar.html.twig" />
+    <list default="true" id="6744a6a7-1b6b-4c18-8dc7-3e2cb27f5dd8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/PortfolioBundle/Controller/PortfolioController.php" afterPath="$PROJECT_DIR$/src/PW/PortfolioBundle/Controller/PortfolioController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/PortfolioBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/PW/PortfolioBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/UserBundle/Resources/views/Connexion/connexion.html.twig" afterPath="$PROJECT_DIR$/src/PW/UserBundle/Resources/views/Connexion/connexion.html.twig" />
     </list>
     <ignored path="ProjetWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1032,7 +1026,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458307837406</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ajout navbar">
+      <created>1458310911135</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1458310911135</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
