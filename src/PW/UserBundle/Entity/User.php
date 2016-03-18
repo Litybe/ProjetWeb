@@ -54,32 +54,6 @@ class User extends BaseUser
     private $cellphone;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="Email", type="string", length=255)
-     */
-    private $emailUser;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="Pseudo", type="string", length=255, unique=true)
-     */
-    private $pseudo;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="UserPassword", type="string", length=255)
-     */
-    private $userPassword;
-
-    /**
-     * @ORM\Column(name="roles", type="array")
-     */
-    //private $rolesUser = array();
-
-    /**
      * @var bool
      *
      * @ORM\Column(name="IsVisble_LastName", type="boolean")
@@ -404,74 +378,6 @@ class User extends BaseUser
         return $this->cellphone;
     }
 
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return User
-     */
-    public function setEmail($emailUser)
-    {
-        $this->emailUser = $emailUser;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->emailUser;
-    }
-
-    /**
-     * Set pseudo
-     *
-     * @param string $pseudo
-     * @return User
-     */
-    public function setPseudo($pseudo)
-    {
-        $this->pseudo = $pseudo;
-
-        return $this;
-    }
-
-    /**
-     * Get pseudo
-     *
-     * @return string 
-     */
-    public function getPseudo()
-    {
-        return $this->pseudo;
-    }
-
-    /**
-     * Set userPassword
-     *
-     * @param string $userPassword
-     * @return User
-     */
-    public function setUserPassword($userPassword)
-    {
-        $this->userPassword = $userPassword;
-
-        return $this;
-    }
-
-    /**
-     * Get userPassword
-     *
-     * @return string 
-     */
-    public function getUserPassword()
-    {
-        return $this->userPassword;
-    }
 
     /**
      * Set isVisbleLastName
@@ -605,6 +511,7 @@ class User extends BaseUser
      */
     public function __construct()
     {
+        parent::__construct();
         $this->adress = new \Doctrine\Common\Collections\ArrayCollection();
         $this->experience = new \Doctrine\Common\Collections\ArrayCollection();
         $this->skill = new \Doctrine\Common\Collections\ArrayCollection();

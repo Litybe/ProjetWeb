@@ -21,11 +21,13 @@ security:
             anonymous: true
             provider:  main
             form_login:
-                login_path: login
-                check_path: login_check
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
             logout:
-                path:   logout
+                path:   fos_user_security_logout
                 target: /platform
+            remember_me:
+                key:    %secret%
         # On crée un pare-feu uniquement pour le formulaire
         main_login:
             # Cette expression régulière permet de prendre /login (mais pas /login_check !)
