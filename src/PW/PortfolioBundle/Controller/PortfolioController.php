@@ -38,7 +38,7 @@ class PortfolioController extends Controller
     {
         return $this->render('PWPortfolioBundle:Introduction:introduction.html.twig');
     }
-    public function ergonomieAction()
+    public function ergonomyAction()
     {
         return $this->render('PWPortfolioBundle:Ergonomie:ergonomie.html.twig');
     }
