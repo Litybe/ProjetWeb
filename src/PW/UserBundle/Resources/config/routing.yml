@@ -13,3 +13,7 @@ pw_user_catalogue:
 pw_user_connexion:
     pattern: /User/Connexion
     defaults: { _controller: PWUserBundle:Security:connexion}
+
+pw_user_test:
+    pattern: /User/TESTMONNEGRO
+    defaults: {_controller: PWUserBundle:Security:test}

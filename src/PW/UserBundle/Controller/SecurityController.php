@@ -57,4 +57,9 @@ class SecurityController extends Controller
     {
         return $this->render('PWUserBundle:Connexion:connexion.html.twig');
     }
+
+    public function testAction()
+    {
+        return $this->render('PWUserBundle:test:test.html.twig');
+    }
 }

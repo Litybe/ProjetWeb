@@ -17,3 +17,4 @@ pw_portfolio_introduction:
 pw_portfolio_ergonomy:
     path:    /portfolio/ergonomy
     defaults: { _controller: PWPortfolioBundle:Portfolio:ergonomy }
+
