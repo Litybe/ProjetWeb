@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "84210d39f6fa9796ed67d42bf97cb406",
+    "hash": "356f353b6e4cc5f754eb177a19e10098",
     "content-hash": "6273cdf30fb372c418ab14a74816b880",
     "packages": [
         {
@@ -1008,16 +1008,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v1.2.2",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "b3313b618f4edd76523572531d5d7e22fe747430"
+                "reference": "ff76e1a660669bb56ba74ba0583fd8d41417bf39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/b3313b618f4edd76523572531d5d7e22fe747430",
-                "reference": "b3313b618f4edd76523572531d5d7e22fe747430",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/ff76e1a660669bb56ba74ba0583fd8d41417bf39",
+                "reference": "ff76e1a660669bb56ba74ba0583fd8d41417bf39",
                 "shasum": ""
             },
             "require": {
@@ -1052,7 +1052,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-03-11 19:54:08"
+            "time": "2016-03-17 16:11:57"
         },
         {
             "name": "psr/log",

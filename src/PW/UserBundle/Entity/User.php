@@ -415,7 +415,7 @@ class User extends BaseUser
         $this->emailUser = $emailUser;
 
         return $this;
-    }*/
+    }
 
     /**
      * Get email

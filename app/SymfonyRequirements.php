@@ -432,12 +432,6 @@ class SymfonyRequirements extends RequirementCollection
                 'Set the "<strong>date.timezone</strong>" setting in php.ini<a href="#phpini">*</a> (like Europe/Paris).'
             );
         }
-            $this->addPhpIniRequirement(
-                'date.timezone', true, false,
-                'date.timezone setting must be set',
-                'Set the "<strong>date.timezone</strong>" setting in php.ini<a href="#phpini">*</a> (like Europe/Paris).'
-            );
-        }
 
         if (version_compare($installedPhpVersion, self::REQUIRED_PHP_VERSION, '>=')) {
             $timezones = array();

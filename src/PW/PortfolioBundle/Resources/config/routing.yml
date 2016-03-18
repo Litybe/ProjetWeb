@@ -1,6 +1,6 @@
 pw_portfolio_homepage:
     path:     /
-    defaults: { _controller: PWPortfolioBundle:Portfolio:addTraining }
+    defaults: { _controller: PWPortfolioBundle:Portfolio:index }
 
 pw_portfolio_home:
     path: /portfolio
