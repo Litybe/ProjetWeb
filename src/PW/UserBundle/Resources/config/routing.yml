@@ -1,5 +1,5 @@
 pw_user_homepage:
-    pattern: /User
+    pattern:    /
     defaults: { _controller: PWUserBundle:Security:index }
 
 pw_user_profile:

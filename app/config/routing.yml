@@ -9,8 +9,13 @@ login:
 login_check:
     pattern:   /login_check
 
+
 logout:
     pattern:   /logout
+
+register:
+    pattern:     /register
+    defaults: { _controller: PWUserBundle:Security:register}
 
 pw_user:
     resource: "@PWUserBundle/Resources/config/routing.yml"

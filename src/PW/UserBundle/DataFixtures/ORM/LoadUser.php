@@ -3,11 +3,11 @@
 
 namespace PW\UserBundle\DataFixtures\ORM;
 
-
+use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use PW\UserBundle\Entity\User;
 
-class LoadUser
+class LoadUser implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -19,8 +19,12 @@ class LoadUser
             $user = new User;
 
             // Le nom d'utilisateur et le mot de passe sont identiques
-            $user->setPseudo($name);
-            $user->setUserPassword($name);
+            $user->setUsername($name);
+            $user->setPassword($name);
+            $user->setCellphone("0699724798");
+            $user->setEmail($name."@test.fr");
+            $user->setFirstName($name);
+            $user->setLastName($name."Last");
 
             // On définit uniquement le role ROLE_USER qui est le role de base
             $user->setRoles(array('ROLE_USER'));

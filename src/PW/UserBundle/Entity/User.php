@@ -13,15 +13,15 @@ use PW\PortfolioBundle\Entity\Skill;
 use PW\PortfolioBundle\Entity\SkillGroup;
 use PW\PortfolioBundle\Entity\Theme;
 use PW\PortfolioBundle\Entity\Training;
-use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * User
+ * User2
  *
  * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="PW\UserBundle\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="PW\UserBundle\Repository\User2Repository")
  */
-class User extends BaseUser
+class User implements UserInterface
 {
     /**
      * @var int
@@ -30,7 +30,7 @@ class User extends BaseUser
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string
@@ -49,6 +49,32 @@ class User extends BaseUser
     /**
      * @var string
      *
+     * @ORM\Column(name="username", type="string", length=255, unique=true)
+     */
+    private $username;
+
+    /**
+     * @ORM\Column(name="salt", type="string", length=255,nullable=true)
+     */
+    private $salt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255)
+     */
+    private $password;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="Cellphone", type="string", length=255)
      */
     private $cellphone;
@@ -56,35 +82,40 @@ class User extends BaseUser
     /**
      * @var bool
      *
-     * @ORM\Column(name="IsVisble_LastName", type="boolean")
+     * @ORM\Column(name="IsVisble_LastName", type="boolean",nullable=true)
      */
     private $isVisbleLastName;
 
     /**
+     * @ORM\Column(name="roles", type="array")
+     */
+    private $roles = array();
+
+    /**
      * @var bool
      *
-     * @ORM\Column(name="IsVisble_FirstName", type="boolean")
+     * @ORM\Column(name="IsVisble_FirstName", type="boolean",nullable=true)
      */
     private $isVisbleFirstName;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="IsVisble_Email", type="boolean")
+     * @ORM\Column(name="IsVisble_Email", type="boolean",nullable=true)
      */
     private $isVisbleEmail;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="IsVisble_Cellphone", type="boolean")
+     * @ORM\Column(name="IsVisble_Cellphone", type="boolean",nullable=true)
      */
     private $isVisbleCellphone;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="IsVisble_Year", type="boolean")
+     * @ORM\Column(name="IsVisble_Year", type="boolean",nullable=true)
      */
     private $isVisbleYear;
 
@@ -117,186 +148,22 @@ class User extends BaseUser
      * @ORM\ManyToMany(targetEntity="PW\PortfolioBundle\Entity\Image", cascade={"persist"})
      */
     private $image;
-
-    /**
-     * @ORM\OneToMany(targetEntity="PW\PortfolioBundle\Entity\Theme", mappedBy="user")
-     */
-    private $theme;
+    /*
+        /**
+         * @ORM\OneToMany(targetEntity="PW\PortfolioBundle\Entity\Theme", mappedBy="user")
+         *
+        private $theme;
+    */
 
     /**
      * @ORM\ManyToMany(targetEntity="PW\PortfolioBundle\Entity\Project", cascade={"persist"})
      */
     private $project;
-
-    /**
-     * @ORM\OneToMany(targetEntity="PW\PortfolioBundle\Entity\Date", mappedBy="user")
-     */
-    private $date;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="PW\PortfolioBundle\Entity\Training", cascade={"persist"})
-     */
-    private $training;
-
-    /**
-     * @return mixed
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * @param mixed $address
-     */
-    public function setAddress(Address $address)
-    {
-        $this->address = $address;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getExperience()
-    {
-        return $this->experience;
-    }
-
-    /**
-     * @param mixed $experience
-     */
-    public function setExperience(Experience $experience)
-    {
-        $this->experience = $experience;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSkill()
-    {
-        return $this->skill;
-    }
-
-    /**
-     * @param mixed $skill
-     */
-    public function setSkill(Skill $skill)
-    {
-        $this->skill = $skill;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSkillGroup()
-    {
-        return $this->skillGroup;
-    }
-
-    /**
-     * @param mixed $skillGroup
-     */
-    public function setSkillGroup(SkillGroup $skillGroup)
-    {
-        $this->skillGroup = $skillGroup;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getHomePage()
-    {
-        return $this->homePage;
-    }
-
-    /**
-     * @param mixed $homePage
-     */
-    public function setHomePage(HomePage $homePage)
-    {
-        $this->homePage = $homePage;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * @param mixed $image
-     */
-    public function setImage(Image $image)
-    {
-        $this->image = $image;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTheme()
-    {
-        return $this->theme;
-    }
-
-    /**
-     * @param mixed $theme
-     */
-    public function setTheme(Theme $theme)
-    {
-        $this->theme = $theme;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getProject()
-    {
-        return $this->project;
-    }
-
-    /**
-     * @param mixed $project
-     */
-    public function setProject(Project $project)
-    {
-        $this->project = $project;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * @param mixed $date
-     */
-    public function setDate(Date $date)
-    {
-        $this->date = $date;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTraining()
-    {
-        return $this->training;
-    }
-
-    /**
-     * @param mixed $training
-     */
-    public function setTraining(Training $training)
-    {
-        $this->training = $training;
-    }
+    /*
+        /**
+         * @ORM\OneToMany(targetEntity="PW\PortfolioBundle\Entity\Date", mappedBy="user")
+         *
+        private $date;*/
 
 
     /**
@@ -307,6 +174,114 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     * @return User
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     * @return User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string 
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     * @return User
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return string 
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     * @return User
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Get roles
+     *
+     * @return array 
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->address = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->experience = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->skill = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->skillGroup = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->image = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->project = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -356,6 +331,29 @@ class User extends BaseUser
     }
 
     /**
+     * Set email
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
      * Set cellphone
      *
      * @param string $cellphone
@@ -377,7 +375,6 @@ class User extends BaseUser
     {
         return $this->cellphone;
     }
-
 
     /**
      * Set isVisbleLastName
@@ -495,35 +492,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set roles
-     *
-     * @param array $roles
-     * @return User
-     */
-  /*  public function setRoles($roles)
-    {
-        $this->rolesUser = $roles;
-
-        return $this;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->adress = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->experience = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->skill = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->skillGroup = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->image = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->theme = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->project = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->date = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->training = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
      * Add address
      *
      * @param \PW\PortfolioBundle\Entity\Address $address
@@ -547,6 +515,16 @@ class User extends BaseUser
     }
 
     /**
+     * Get address
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
      * Add experience
      *
      * @param \PW\PortfolioBundle\Entity\Experience $experience
@@ -555,6 +533,7 @@ class User extends BaseUser
     public function addExperience(\PW\PortfolioBundle\Entity\Experience $experience)
     {
         $this->experience[] = $experience;
+
         return $this;
     }
 
@@ -569,6 +548,16 @@ class User extends BaseUser
     }
 
     /**
+     * Get experience
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getExperience()
+    {
+        return $this->experience;
+    }
+
+    /**
      * Add skill
      *
      * @param \PW\PortfolioBundle\Entity\Skill $skill
@@ -577,6 +566,7 @@ class User extends BaseUser
     public function addSkill(\PW\PortfolioBundle\Entity\Skill $skill)
     {
         $this->skill[] = $skill;
+
         return $this;
     }
 
@@ -588,6 +578,16 @@ class User extends BaseUser
     public function removeSkill(\PW\PortfolioBundle\Entity\Skill $skill)
     {
         $this->skill->removeElement($skill);
+    }
+
+    /**
+     * Get skill
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSkill()
+    {
+        return $this->skill;
     }
 
     /**
@@ -614,6 +614,39 @@ class User extends BaseUser
     }
 
     /**
+     * Get skillGroup
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSkillGroup()
+    {
+        return $this->skillGroup;
+    }
+
+    /**
+     * Set homePage
+     *
+     * @param \PW\PortfolioBundle\Entity\HomePage $homePage
+     * @return User
+     */
+    public function setHomePage(\PW\PortfolioBundle\Entity\HomePage $homePage = null)
+    {
+        $this->homePage = $homePage;
+
+        return $this;
+    }
+
+    /**
+     * Get homePage
+     *
+     * @return \PW\PortfolioBundle\Entity\HomePage 
+     */
+    public function getHomePage()
+    {
+        return $this->homePage;
+    }
+
+    /**
      * Add image
      *
      * @param \PW\PortfolioBundle\Entity\Image $image
@@ -637,26 +670,13 @@ class User extends BaseUser
     }
 
     /**
-     * Add theme
+     * Get image
      *
-     * @param \PW\PortfolioBundle\Entity\Theme $theme
-     * @return User
+     * @return \Doctrine\Common\Collections\Collection 
      */
-    public function addTheme(\PW\PortfolioBundle\Entity\Theme $theme)
+    public function getImage()
     {
-        $this->theme[] = $theme;
-
-        return $this;
-    }
-
-    /**
-     * Remove theme
-     *
-     * @param \PW\PortfolioBundle\Entity\Theme $theme
-     */
-    public function removeTheme(\PW\PortfolioBundle\Entity\Theme $theme)
-    {
-        $this->theme->removeElement($theme);
+        return $this->image;
     }
 
     /**
@@ -683,48 +703,12 @@ class User extends BaseUser
     }
 
     /**
-     * Add date
+     * Get project
      *
-     * @param \PW\PortfolioBundle\Entity\Date $date
-     * @return User
+     * @return \Doctrine\Common\Collections\Collection 
      */
-    public function addDate(\PW\PortfolioBundle\Entity\Date $date)
+    public function getProject()
     {
-        $this->date[] = $date;
-
-        return $this;
-    }
-
-    /**
-     * Remove date
-     *
-     * @param \PW\PortfolioBundle\Entity\Date $date
-     */
-    public function removeDate(\PW\PortfolioBundle\Entity\Date $date)
-    {
-        $this->date->removeElement($date);
-    }
-
-    /**
-     * Add training
-     *
-     * @param \PW\PortfolioBundle\Entity\Training $training
-     * @return User
-     */
-    public function addTraining(\PW\PortfolioBundle\Entity\Training $training)
-    {
-        $this->training[] = $training;
-
-        return $this;
-    }
-
-    /**
-     * Remove training
-     *
-     * @param \PW\PortfolioBundle\Entity\Training $training
-     */
-    public function removeTraining(\PW\PortfolioBundle\Entity\Training $training)
-    {
-        $this->training->removeElement($training);
+        return $this->project;
     }
 }

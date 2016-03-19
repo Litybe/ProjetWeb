@@ -1,5 +1,5 @@
 pw_portfolio_homepage:
-    path:    /
+    path:    /test
     defaults: { _controller: PWPortfolioBundle:Portfolio:test }
 
 pw_portfolio_home:

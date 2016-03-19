@@ -5,6 +5,7 @@ namespace PW\PortfolioBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class AddressType extends AbstractType
 {
@@ -15,10 +16,10 @@ class AddressType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('address',    'text')
-            ->add('number',     'text')
-            ->add('zipCode',    'text')
-            ->add('city',       'text')
+            ->add('address',    TextType::class)
+            ->add('number',     TextType::class)
+            ->add('zipCode',    TextType::class)
+            ->add('city',       TextType::class)
             ->add('validate',   'submit')
         ;
     }

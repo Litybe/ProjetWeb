@@ -5,44 +5,64 @@ namespace PW\PortfolioBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Training
+ * Formation
+ *
+ * @ORM\Table(name="Training")
+ * @ORM\Entity(repositoryClass="PW\PortfolioBundle\Repository\FormationRepository")
  */
 class Training
 {
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="name_training", type="string", length=255)
      */
     private $nameTraining;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="qualification", type="string", length=255)
      */
     private $qualification;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="training_descriptive", type="string", length=255)
      */
     private $trainingDescriptive;
 
     /**
-     * @ORM\OneToOne(targetEntity="PW\Portfolio\Entity\Date", cascade={"persist"})
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 
     /**
-     * @ORM\ManyToMany(targetEntity="PW\Portfolio\Entity\Adress", cascade={"persist"})
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=255)
      */
     private $adress;
 
-    public function __construct()
-    {
-        $this->date = new Date();
-    }
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="user", type="string", length=255)
+     */
+    private $user;
+
 
     /**
      * Get id
@@ -126,10 +146,10 @@ class Training
     /**
      * Set date
      *
-     * @param  Date $date
+     * @param \DateTime $date
      * @return Training
      */
-    public function setDate(Date $date)
+    public function setDate($date)
     {
         $this->date = $date;
 
@@ -138,7 +158,8 @@ class Training
 
     /**
      * Get date
-     * @return Date
+     *
+     * @return \DateTime 
      */
     public function getDate()
     {
@@ -146,33 +167,27 @@ class Training
     }
 
     /**
-     * Set adress
+     * Set address
      *
-     * @param string $adress
+     * @param string $address
      * @return Training
      */
-    public function setAdress(Address $adress)
+    public function setAddress($address)
     {
-        $this->adress = $adress;
+        $this->adress = $address;
 
         return $this;
     }
 
     /**
-     * Get adress
+     * Get address
      *
      * @return string 
      */
-    public function getAdress()
+    public function getAddress()
     {
         return $this->adress;
     }
-    
-    /**
-     * @var string
-     */
-    private $user;
-
 
     /**
      * Set user

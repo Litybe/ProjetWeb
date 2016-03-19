@@ -21,10 +21,9 @@ class TrainingType extends AbstractType
             ->add('nameTraining',           'text')
             ->add('qualification',          'text')
             ->add('trainingDescriptive',    'textarea')
-            ->add('date',                   new Date())
-            ->add('address',                new Address())
+            ->add('date',                   'text')
+            ->add('address',                'text')
             ->add('validate',               'submit')
-            ->getForm()
         ;
     }
     

@@ -38,11 +38,11 @@ class Address
      * @ORM\ManyToOne(targetEntity="PW\TrainingBundle\Entity\Experience", mappedBy="address")
      */
     private $experience;
-
+/*
     /**
      * @ORM\ManyToOne(targetEntity="PW\TrainingBundle\Entity\Training", mappedBy="address")
-     */
-    private $training;
+
+    private $training;*/
 
     /**
      * @return mixed
@@ -59,10 +59,10 @@ class Address
     {
         $this->experience = $experience;
     }
-
+/*
     /**
      * @return mixed
-     */
+
     public function getTraining()
     {
         return $this->training;
@@ -70,12 +70,12 @@ class Address
 
     /**
      * @param mixed $training
-     */
+
     public function setTraining(Training $training)
     {
         $this->training = $training;
     }
-
+*/
     /**
      * Get id
      *
@@ -86,12 +86,12 @@ class Address
         return $this->id;
     }
 
-    /**
+   /* /**
      * Set address
      *
      * @param string $address
      * @return Address
-     */
+     *
     public function setAddress($address)
     {
         $this->address = $address;
@@ -103,11 +103,11 @@ class Address
      * Get address
      *
      * @return string 
-     */
+     *
     public function getAddress()
     {
         return $this->address;
-    }
+    }*/
 
     /**
      * Set number

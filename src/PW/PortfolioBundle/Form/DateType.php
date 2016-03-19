@@ -22,7 +22,7 @@ class DateType extends AbstractType
         $builder
             ->add('dateTime',       new Date())
             ->add('experience',     new Experience())
-            ->add('training',       new Training())
+            ->add('training',       'text')
             ->add('user',           new User())
             ->add('project',        new Project())
             ->add('validate',               'submit')
