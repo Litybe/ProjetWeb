@@ -2,7 +2,6 @@
 
 namespace PW\PortfolioBundle\Controller;
 
-use PW\PortfolioBundle\Entity\Address;
 use PW\PortfolioBundle\Form\AddressType;
 use PW\PortfolioBundle\Form\TrainingType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -62,28 +61,3 @@ class PortfolioController extends Controller
         return $this->render('PWPortfolioBundle:Ergonomie:ergonomie.html.twig');
     }
 }
-/*<div class="well">
-    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-
-    {{ form_errors(form) }}
-
-    <div class="form-group">
-        {{ form_label(form.nameTraining, "Nom de la formation", {'label_attr':{'classe': 'col-sm-3 control-label'}}) }}
-        {{ form_errors(form.nameTraining) }}
-        <div class="col-sm-4">
-            {{ form_widget(form.nameTraining, {'attr': {'class': 'form-control'}}) }}
-        </div>
-    </div>
-<div class="form-group">
-        {{ form_label(form.qualification, "qualification", {'label_attr':{'classe': 'col-sm-3 control-label'}}) }}
-        {{ form_errors(form.qualification) }}
-        <div class="col-sm-4">
-            {{ form_widget(form.qualification, {'attr': {'class': 'form-control'}}) }}
-        </div>
-    </div>
-
-    {{ form_widget(form.validate, {'attr': {'class': 'btn btn-primary'}}) }}
-    {{ form_rest(form) }}
-    {{ form_end(form) }}
-</div>
-*/

@@ -24,10 +24,10 @@ class Image
      */
     private $altImage;
 
-    /**
+   /* /**
      * @ORM\ManyToOne(targetEntity="PW\TrainingBundle\Entity\HomePage", mappedBy="image"})
-     */
-    private $homePage;
+     *
+    private $homePage;*/
 
     /**
      * @return mixed

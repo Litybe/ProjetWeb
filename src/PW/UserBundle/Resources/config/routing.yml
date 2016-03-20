@@ -1,18 +1,18 @@
 pw_user_homepage:
     pattern:    /
-    defaults: { _controller: PWUserBundle:Security:index }
+    defaults: { _controller: PWUserBundle:View:index }
 
 pw_user_profile:
     pattern: /User/Profile
-    defaults: { _controller: PWUserBundle:Security:profile}
+    defaults: { _controller: PWUserBundle:View:profile}
 
 pw_user_catalogue:
     pattern: /User/Catalogue
-    defaults: { _controller: PWUserBundle:Security:catalogue}
+    defaults: { _controller: PWUserBundle:View:catalogue}
 
 pw_user_connexion:
     pattern: /User/Connexion
-    defaults: { _controller: PWUserBundle:Security:connexion}
+    defaults: { _controller: PWUserBundle:Security:login}
 
 pw_user_test:
     pattern: /User/TESTMONNEGRO

@@ -7,23 +7,32 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Skill
+ *
+ * @ORM\Table(name="skill")
+ * @ORM\Entity(repositoryClass="PW\PortfolioBundle\Repository\SkillRepository")
  */
 class Skill
 {
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="SkillName", type="string", length=255)
      */
-    private $nameSkill;
+    private $skillName;
 
     /**
-     * @var string
+     * @ORM\ManyToMany(targetEntity="PW\Portfolio\Entity\SkillGroup", cascade={"persist"})
      */
-    private $skillMastery;
+    private $skillGroup;
 
     /**
      * @ORM\ManyToMany(targetEntity="PW\Portfolio\Entity\SkillGroup", cascade={"persist"})
@@ -55,6 +64,22 @@ class Skill
     }
 
     /**
+     * @return mixed
+     */
+    public function getSkillGroup()
+    {
+        return $this->skillGroup;
+    }
+
+    /**
+     * @param mixed $skillGroup
+     */
+    public function setSkillGroup($skillGroup)
+    {
+        $this->skillGroup = $skillGroup;
+    }
+
+    /**
      * Get id
      *
      * @return integer 
@@ -63,6 +88,39 @@ class Skill
     {
         return $this->id;
     }
+
+    /**
+     * Set skillName
+     *
+     * @param string $skillName
+     * @return Skill
+     */
+    public function setSkillName($skillName)
+    {
+        $this->skillName = $skillName;
+
+        return $this;
+    }
+
+    /**
+     * Get skillName
+     *
+     * @return string 
+     */
+    public function getSkillName()
+    {
+        return $this->skillName;
+    }
+    /**
+     * @var string
+     */
+    private $nameSkill;
+
+    /**
+     * @var string
+     */
+    private $skillMastery;
+
 
     /**
      * Set nameSkill

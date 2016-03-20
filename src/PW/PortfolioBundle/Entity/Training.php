@@ -5,10 +5,10 @@ namespace PW\PortfolioBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Formation
+ * Training
  *
- * @ORM\Table(name="Training")
- * @ORM\Entity(repositoryClass="PW\PortfolioBundle\Repository\FormationRepository")
+ * @ORM\Table(name="training")
+ * @ORM\Entity(repositoryClass="PW\PortfolioBundle\Repository\TrainingRepository")
  */
 class Training
 {
@@ -24,44 +24,51 @@ class Training
     /**
      * @var string
      *
-     * @ORM\Column(name="name_training", type="string", length=255)
+     * @ORM\Column(name="TrainingName", type="string", length=255)
      */
-    private $nameTraining;
+    private $trainingName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="qualification", type="string", length=255)
+     * @ORM\Column(name="TrainingDiploma", type="string", length=255)
      */
-    private $qualification;
+    private $trainingDiploma;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="training_descriptive", type="string", length=255)
+     * @ORM\Column(name="TrainingAddress", type="string", length=255)
      */
-    private $trainingDescriptive;
+    private $trainingAddress;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TrainingZipCode", type="string", length=255)
+     */
+    private $trainingZipCode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TrainingCity", type="string", length=255)
+     */
+    private $trainingCity;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="TrainingDate", type="date")
      */
-    private $date;
+    private $trainingDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=255)
+     * @ORM\Column(name="TrainingDescriptive", type="string", length=255)
      */
-    private $adress;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="user", type="string", length=255)
-     */
-    private $user;
+    private $trainingDescriptive;
 
 
     /**
@@ -73,6 +80,192 @@ class Training
     {
         return $this->id;
     }
+
+    /**
+     * Set trainingName
+     *
+     * @param string $trainingName
+     * @return Training
+     */
+    public function setTrainingName($trainingName)
+    {
+        $this->trainingName = $trainingName;
+
+        return $this;
+    }
+
+    /**
+     * Get trainingName
+     *
+     * @return string 
+     */
+    public function getTrainingName()
+    {
+        return $this->trainingName;
+    }
+
+    /**
+     * Set trainingDiploma
+     *
+     * @param string $trainingDiploma
+     * @return Training
+     */
+    public function setTrainingDiploma($trainingDiploma)
+    {
+        $this->trainingDiploma = $trainingDiploma;
+
+        return $this;
+    }
+
+    /**
+     * Get trainingDiploma
+     *
+     * @return string 
+     */
+    public function getTrainingDiploma()
+    {
+        return $this->trainingDiploma;
+    }
+
+    /**
+     * Set trainingAddress
+     *
+     * @param string $trainingAddress
+     * @return Training
+     */
+    public function setTrainingAddress($trainingAddress)
+    {
+        $this->trainingAddress = $trainingAddress;
+
+        return $this;
+    }
+
+    /**
+     * Get trainingAddress
+     *
+     * @return string 
+     */
+    public function getTrainingAddress()
+    {
+        return $this->trainingAddress;
+    }
+
+    /**
+     * Set trainingZipCode
+     *
+     * @param string $trainingZipCode
+     * @return Training
+     */
+    public function setTrainingZipCode($trainingZipCode)
+    {
+        $this->trainingZipCode = $trainingZipCode;
+
+        return $this;
+    }
+
+    /**
+     * Get trainingZipCode
+     *
+     * @return string 
+     */
+    public function getTrainingZipCode()
+    {
+        return $this->trainingZipCode;
+    }
+
+    /**
+     * Set trainingCity
+     *
+     * @param string $trainingCity
+     * @return Training
+     */
+    public function setTrainingCity($trainingCity)
+    {
+        $this->trainingCity = $trainingCity;
+
+        return $this;
+    }
+
+    /**
+     * Get trainingCity
+     *
+     * @return string 
+     */
+    public function getTrainingCity()
+    {
+        return $this->trainingCity;
+    }
+
+    /**
+     * Set trainingDate
+     *
+     * @param \DateTime $trainingDate
+     * @return Training
+     */
+    public function setTrainingDate($trainingDate)
+    {
+        $this->trainingDate = $trainingDate;
+
+        return $this;
+    }
+
+    /**
+     * Get trainingDate
+     *
+     * @return \DateTime 
+     */
+    public function getTrainingDate()
+    {
+        return $this->trainingDate;
+    }
+
+    /**
+     * Set trainingDescriptive
+     *
+     * @param string $trainingDescriptive
+     * @return Training
+     */
+    public function setTrainingDescriptive($trainingDescriptive)
+    {
+        $this->trainingDescriptive = $trainingDescriptive;
+
+        return $this;
+    }
+
+    /**
+     * Get trainingDescriptive
+     *
+     * @return string 
+     */
+    public function getTrainingDescriptive()
+    {
+        return $this->trainingDescriptive;
+    }
+    /**
+     * @var string
+     */
+    private $nameTraining;
+
+    /**
+     * @var string
+     */
+    private $qualification;
+
+    /**
+     * @var \DateTime
+     */
+    private $date;
+
+    /**
+     * @var string
+     */
+    private $adress;
+
+    /**
+     * @var string
+     */
+    private $user;
+
 
     /**
      * Set nameTraining
@@ -121,29 +314,6 @@ class Training
     }
 
     /**
-     * Set trainingDescriptive
-     *
-     * @param string $trainingDescriptive
-     * @return Training
-     */
-    public function setTrainingDescriptive($trainingDescriptive)
-    {
-        $this->trainingDescriptive = $trainingDescriptive;
-
-        return $this;
-    }
-
-    /**
-     * Get trainingDescriptive
-     *
-     * @return string 
-     */
-    public function getTrainingDescriptive()
-    {
-        return $this->trainingDescriptive;
-    }
-
-    /**
      * Set date
      *
      * @param \DateTime $date
@@ -167,24 +337,24 @@ class Training
     }
 
     /**
-     * Set address
+     * Set adress
      *
-     * @param string $address
+     * @param string $adress
      * @return Training
      */
-    public function setAddress($address)
+    public function setAdress($adress)
     {
-        $this->adress = $address;
+        $this->adress = $adress;
 
         return $this;
     }
 
     /**
-     * Get address
+     * Get adress
      *
      * @return string 
      */
-    public function getAddress()
+    public function getAdress()
     {
         return $this->adress;
     }

@@ -3,16 +3,6 @@
 namespace PW\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PW\PortfolioBundle\Entity\Address;
-use PW\PortfolioBundle\Entity\Date;
-use PW\PortfolioBundle\Entity\Experience;
-use PW\PortfolioBundle\Entity\HomePage;
-use PW\PortfolioBundle\Entity\Image;
-use PW\PortfolioBundle\Entity\Project;
-use PW\PortfolioBundle\Entity\Skill;
-use PW\PortfolioBundle\Entity\SkillGroup;
-use PW\PortfolioBundle\Entity\Theme;
-use PW\PortfolioBundle\Entity\Training;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -49,21 +39,9 @@ class User implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=255, unique=true)
+     * @ORM\Column(name="username", type="string", length=255)
      */
     private $username;
-
-    /**
-     * @ORM\Column(name="salt", type="string", length=255,nullable=true)
-     */
-    private $salt;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255)
-     */
-    private $email;
 
     /**
      * @var string
@@ -80,11 +58,71 @@ class User implements UserInterface
     private $cellphone;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    private $Email;
+
+    /**
+     * @return string
+     */
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="UserAddress", type="string", length=255)
+     */
+    private $userAddress;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="UserZipCode", type="string", length=255)
+     */
+    private $userZipCode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="UserCity", type="string", length=255)
+     */
+    private $userCity;
+
+    /**
      * @var bool
      *
-     * @ORM\Column(name="IsVisble_LastName", type="boolean",nullable=true)
+     * @ORM\Column(name="IsVisibleLastName", type="boolean")
      */
-    private $isVisbleLastName;
+    private $isVisibleLastName;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="IsVisibleFirstName", type="boolean")
+     */
+    private $isVisibleFirstName;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="IsVisibleEmail", type="boolean")
+     */
+    private $isVisibleEmail;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="IsVisibleCellphone", type="boolean")
+     */
+    private $isVisibleCellphone;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="IsVisibleAddress", type="boolean")
+     */
+    private $isVisibleAddress;
 
     /**
      * @ORM\Column(name="roles", type="array")
@@ -92,37 +130,15 @@ class User implements UserInterface
     private $roles = array();
 
     /**
-     * @var bool
-     *
-     * @ORM\Column(name="IsVisble_FirstName", type="boolean",nullable=true)
+     * @ORM\Column(name="salt", type="string", length=255,nullable=true)
      */
-    private $isVisbleFirstName;
+    private $salt;
+
 
     /**
-     * @var bool
-     *
-     * @ORM\Column(name="IsVisble_Email", type="boolean",nullable=true)
+     * @ORM\ManyToMany(targetEntity="PW\PortfolioBundle\Entity\Project", cascade={"persist"})
      */
-    private $isVisbleEmail;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="IsVisble_Cellphone", type="boolean",nullable=true)
-     */
-    private $isVisbleCellphone;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="IsVisble_Year", type="boolean",nullable=true)
-     */
-    private $isVisbleYear;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="PW\PortfolioBundle\Entity\Address", cascade={"persist"})
-     */
-    private $address;
+    private $project;
 
     /**
      * @ORM\ManyToMany(targetEntity="PW\PortfolioBundle\Entity\Experience", cascade={"persist"})
@@ -130,40 +146,14 @@ class User implements UserInterface
     private $experience;
 
     /**
-     * @ORM\ManyToMany(targetEntity="PW\PortfolioBundle\Entity\Skill", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="PW\PortfolioBundle\Entity\Training", cascade={"persist"})
      */
-    private $skill;
+    private $training;
 
     /**
      * @ORM\ManyToMany(targetEntity="PW\PortfolioBundle\Entity\SkillGroup", cascade={"persist"})
      */
     private $skillGroup;
-
-    /**
-     * @ORM\OneToOne(targetEntity="PW\PortfolioBundle\Entity\HomePage", cascade={"persist"})
-     */
-    private $homePage;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="PW\PortfolioBundle\Entity\Image", cascade={"persist"})
-     */
-    private $image;
-    /*
-        /**
-         * @ORM\OneToMany(targetEntity="PW\PortfolioBundle\Entity\Theme", mappedBy="user")
-         *
-        private $theme;
-    */
-
-    /**
-     * @ORM\ManyToMany(targetEntity="PW\PortfolioBundle\Entity\Project", cascade={"persist"})
-     */
-    private $project;
-    /*
-        /**
-         * @ORM\OneToMany(targetEntity="PW\PortfolioBundle\Entity\Date", mappedBy="user")
-         *
-        private $date;*/
 
 
     /**
@@ -174,114 +164,6 @@ class User implements UserInterface
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     * @return User
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    /**
-     * Get username
-     *
-     * @return string 
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     * @return User
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string 
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * Set salt
-     *
-     * @param string $salt
-     * @return User
-     */
-    public function setSalt($salt)
-    {
-        $this->salt = $salt;
-
-        return $this;
-    }
-
-    /**
-     * Get salt
-     *
-     * @return string 
-     */
-    public function getSalt()
-    {
-        return $this->salt;
-    }
-
-    /**
-     * Set roles
-     *
-     * @param array $roles
-     * @return User
-     */
-    public function setRoles($roles)
-    {
-        $this->roles = $roles;
-
-        return $this;
-    }
-
-    /**
-     * Get roles
-     *
-     * @return array 
-     */
-    public function getRoles()
-    {
-        return $this->roles;
-    }
-
-    public function eraseCredentials()
-    {
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->address = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->experience = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->skill = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->skillGroup = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->image = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->project = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -331,26 +213,49 @@ class User implements UserInterface
     }
 
     /**
-     * Set email
+     * Set username
      *
-     * @param string $email
+     * @param string $username
      * @return User
      */
-    public function setEmail($email)
+    public function setUsername($username)
     {
-        $this->email = $email;
+        $this->username = $username;
 
         return $this;
     }
 
     /**
-     * Get email
+     * Get username
      *
      * @return string 
      */
-    public function getEmail()
+    public function getUsername()
     {
-        return $this->email;
+        return $this->username;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     * @return User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string 
+     */
+    public function getPassword()
+    {
+        return $this->password;
     }
 
     /**
@@ -377,180 +282,191 @@ class User implements UserInterface
     }
 
     /**
-     * Set isVisbleLastName
+     * Set userAddress
      *
-     * @param boolean $isVisbleLastName
+     * @param string $userAddress
      * @return User
      */
-    public function setIsVisbleLastName($isVisbleLastName)
+    public function setUserAddress($userAddress)
     {
-        $this->isVisbleLastName = $isVisbleLastName;
+        $this->userAddress = $userAddress;
 
         return $this;
     }
 
     /**
-     * Get isVisbleLastName
+     * Get userAddress
+     *
+     * @return string 
+     */
+    public function getUserAddress()
+    {
+        return $this->userAddress;
+    }
+
+    /**
+     * Set userZipCode
+     *
+     * @param string $userZipCode
+     * @return User
+     */
+    public function setUserZipCode($userZipCode)
+    {
+        $this->userZipCode = $userZipCode;
+
+        return $this;
+    }
+
+    /**
+     * Get userZipCode
+     *
+     * @return string 
+     */
+    public function getUserZipCode()
+    {
+        return $this->userZipCode;
+    }
+
+    /**
+     * Set userCity
+     *
+     * @param string $userCity
+     * @return User
+     */
+    public function setUserCity($userCity)
+    {
+        $this->userCity = $userCity;
+
+        return $this;
+    }
+
+    /**
+     * Get userCity
+     *
+     * @return string 
+     */
+    public function getUserCity()
+    {
+        return $this->userCity;
+    }
+
+    /**
+     * Set isVisibleLastName
+     *
+     * @param boolean $isVisibleLastName
+     * @return User
+     */
+    public function setIsVisibleLastName($isVisibleLastName)
+    {
+        $this->isVisibleLastName = $isVisibleLastName;
+
+        return $this;
+    }
+
+    /**
+     * Get isVisibleLastName
      *
      * @return boolean 
      */
-    public function getIsVisbleLastName()
+    public function getIsVisibleLastName()
     {
-        return $this->isVisbleLastName;
+        return $this->isVisibleLastName;
     }
 
     /**
-     * Set isVisbleFirstName
+     * Set isVisibleFirstName
      *
-     * @param boolean $isVisbleFirstName
+     * @param boolean $isVisibleFirstName
      * @return User
      */
-    public function setIsVisbleFirstName($isVisbleFirstName)
+    public function setIsVisibleFirstName($isVisibleFirstName)
     {
-        $this->isVisbleFirstName = $isVisbleFirstName;
+        $this->isVisibleFirstName = $isVisibleFirstName;
 
         return $this;
     }
 
     /**
-     * Get isVisbleFirstName
+     * Get isVisibleFirstName
      *
      * @return boolean 
      */
-    public function getIsVisbleFirstName()
+    public function getIsVisibleFirstName()
     {
-        return $this->isVisbleFirstName;
+        return $this->isVisibleFirstName;
     }
 
     /**
-     * Set isVisbleEmail
+     * Set isVisibleEmail
      *
-     * @param boolean $isVisbleEmail
+     * @param boolean $isVisibleEmail
      * @return User
      */
-    public function setIsVisbleEmail($isVisbleEmail)
+    public function setIsVisibleEmail($isVisibleEmail)
     {
-        $this->isVisbleEmail = $isVisbleEmail;
+        $this->isVisibleEmail = $isVisibleEmail;
 
         return $this;
     }
 
     /**
-     * Get isVisbleEmail
+     * Get isVisibleEmail
      *
      * @return boolean 
      */
-    public function getIsVisbleEmail()
+    public function getIsVisibleEmail()
     {
-        return $this->isVisbleEmail;
+        return $this->isVisibleEmail;
     }
 
     /**
-     * Set isVisbleCellphone
+     * Set isVisibleCellphone
      *
-     * @param boolean $isVisbleCellphone
+     * @param boolean $isVisibleCellphone
      * @return User
      */
-    public function setIsVisbleCellphone($isVisbleCellphone)
+    public function setIsVisibleCellphone($isVisibleCellphone)
     {
-        $this->isVisbleCellphone = $isVisbleCellphone;
+        $this->isVisibleCellphone = $isVisibleCellphone;
 
         return $this;
     }
 
     /**
-     * Get isVisbleCellphone
+     * Get isVisibleCellphone
      *
      * @return boolean 
      */
-    public function getIsVisbleCellphone()
+    public function getIsVisibleCellphone()
     {
-        return $this->isVisbleCellphone;
+        return $this->isVisibleCellphone;
     }
 
     /**
-     * Set isVisbleYear
+     * Set isVisibleAddress
      *
-     * @param boolean $isVisbleYear
+     * @param boolean $isVisibleAddress
      * @return User
      */
-    public function setIsVisbleYear($isVisbleYear)
+    public function setIsVisibleAddress($isVisibleAddress)
     {
-        $this->isVisbleYear = $isVisbleYear;
+        $this->isVisibleAddress = $isVisibleAddress;
 
         return $this;
     }
 
     /**
-     * Get isVisbleYear
+     * Get isVisibleAddress
      *
      * @return boolean 
      */
-    public function getIsVisbleYear()
+    public function getIsVisibleAddress()
     {
-        return $this->isVisbleYear;
+        return $this->isVisibleAddress;
     }
 
     /**
-     * Add address
-     *
-     * @param \PW\PortfolioBundle\Entity\Address $address
-     * @return User
-     */
-    public function addAddress(\PW\PortfolioBundle\Entity\Address $address)
-    {
-        $this->address[] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Remove address
-     *
-     * @param \PW\PortfolioBundle\Entity\Address $address
-     */
-    public function removeAddress(\PW\PortfolioBundle\Entity\Address $address)
-    {
-        $this->address->removeElement($address);
-    }
-
-    /**
-     * Get address
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * Add experience
-     *
-     * @param \PW\PortfolioBundle\Entity\Experience $experience
-     * @return User
-     */
-    public function addExperience(\PW\PortfolioBundle\Entity\Experience $experience)
-    {
-        $this->experience[] = $experience;
-
-        return $this;
-    }
-
-    /**
-     * Remove experience
-     *
-     * @param \PW\PortfolioBundle\Entity\Experience $experience
-     */
-    public function removeExperience(\PW\PortfolioBundle\Entity\Experience $experience)
-    {
-        $this->experience->removeElement($experience);
-    }
-
-    /**
-     * Get experience
-     *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return mixed
      */
     public function getExperience()
     {
@@ -558,65 +474,79 @@ class User implements UserInterface
     }
 
     /**
-     * Add skill
-     *
-     * @param \PW\PortfolioBundle\Entity\Skill $skill
-     * @return User
+     * @param mixed $experience
      */
-    public function addSkill(\PW\PortfolioBundle\Entity\Skill $skill)
+    public function setExperience($experience)
     {
-        $this->skill[] = $skill;
-
-        return $this;
+        $this->experience = $experience;
     }
 
     /**
-     * Remove skill
-     *
-     * @param \PW\PortfolioBundle\Entity\Skill $skill
+     * @return mixed
      */
-    public function removeSkill(\PW\PortfolioBundle\Entity\Skill $skill)
+    public function getProject()
     {
-        $this->skill->removeElement($skill);
+        return $this->project;
     }
 
     /**
-     * Get skill
-     *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @param mixed $project
      */
-    public function getSkill()
+    public function setProject($project)
     {
-        return $this->skill;
+        $this->project = $project;
     }
 
     /**
-     * Add skillGroup
-     *
-     * @param \PW\PortfolioBundle\Entity\SkillGroup $skillGroup
-     * @return User
+     * @return mixed
      */
-    public function addSkillGroup(\PW\PortfolioBundle\Entity\SkillGroup $skillGroup)
+    public function getSalt()
     {
-        $this->skillGroup[] = $skillGroup;
-
-        return $this;
+        return $this->salt;
     }
 
     /**
-     * Remove skillGroup
-     *
-     * @param \PW\PortfolioBundle\Entity\SkillGroup $skillGroup
+     * @param mixed $salt
      */
-    public function removeSkillGroup(\PW\PortfolioBundle\Entity\SkillGroup $skillGroup)
+    public function setSalt($salt)
     {
-        $this->skillGroup->removeElement($skillGroup);
+        $this->salt = $salt;
     }
 
     /**
-     * Get skillGroup
-     *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return mixed
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * @param mixed $roles
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTraining()
+    {
+        return $this->training;
+    }
+
+    /**
+     * @param mixed $training
+     */
+    public function setTraining($training)
+    {
+        $this->training = $training;
+    }
+
+    /**
+     * @return mixed
      */
     public function getSkillGroup()
     {
@@ -624,59 +554,39 @@ class User implements UserInterface
     }
 
     /**
-     * Set homePage
-     *
-     * @param \PW\PortfolioBundle\Entity\HomePage $homePage
-     * @return User
+     * @param mixed $skillGroupe
      */
-    public function setHomePage(\PW\PortfolioBundle\Entity\HomePage $homePage = null)
+    public function setSkillGroup($skillGroup)
     {
-        $this->homePage = $homePage;
+        $this->skillGroup = $skillGroup;
+    }
 
-        return $this;
+    public function getEmail()
+    {
+        return $this->Email;
     }
 
     /**
-     * Get homePage
-     *
-     * @return \PW\PortfolioBundle\Entity\HomePage 
+     * @param string $Email
      */
-    public function getHomePage()
+    public function setEmail($Email)
     {
-        return $this->homePage;
+        $this->Email = $Email;
     }
 
-    /**
-     * Add image
-     *
-     * @param \PW\PortfolioBundle\Entity\Image $image
-     * @return User
-     */
-    public function addImage(\PW\PortfolioBundle\Entity\Image $image)
+    public function eraseCredentials()
     {
-        $this->image[] = $image;
-
-        return $this;
+        // TODO: Implement eraseCredentials() method.
     }
-
     /**
-     * Remove image
-     *
-     * @param \PW\PortfolioBundle\Entity\Image $image
+     * Constructor
      */
-    public function removeImage(\PW\PortfolioBundle\Entity\Image $image)
+    public function __construct()
     {
-        $this->image->removeElement($image);
-    }
-
-    /**
-     * Get image
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getImage()
-    {
-        return $this->image;
+        $this->project = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->experience = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->training = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->skillGroupe = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -703,12 +613,94 @@ class User implements UserInterface
     }
 
     /**
-     * Get project
+     * Add experience
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @param \PW\PortfolioBundle\Entity\Experience $experience
+     * @return User
      */
-    public function getProject()
+    public function addExperience(\PW\PortfolioBundle\Entity\Experience $experience)
     {
-        return $this->project;
+        $this->experience[] = $experience;
+
+        return $this;
+    }
+
+    /**
+     * Remove experience
+     *
+     * @param \PW\PortfolioBundle\Entity\Experience $experience
+     */
+    public function removeExperience(\PW\PortfolioBundle\Entity\Experience $experience)
+    {
+        $this->experience->removeElement($experience);
+    }
+
+    /**
+     * Add training
+     *
+     * @param \PW\PortfolioBundle\Entity\Training $training
+     * @return User
+     */
+    public function addTraining(\PW\PortfolioBundle\Entity\Training $training)
+    {
+        $this->training[] = $training;
+
+        return $this;
+    }
+
+    /**
+     * Remove training
+     *
+     * @param \PW\PortfolioBundle\Entity\Training $training
+     */
+    public function removeTraining(\PW\PortfolioBundle\Entity\Training $training)
+    {
+        $this->training->removeElement($training);
+    }
+
+    /**
+     * Add skillGroupe
+     *
+     * @param \PW\PortfolioBundle\Entity\SkillGroupe $skillGroupe
+     * @return User
+     */
+    public function addSkillGroupe(\PW\PortfolioBundle\Entity\SkillGroupe $skillGroupe)
+    {
+        $this->skillGroupe[] = $skillGroupe;
+
+        return $this;
+    }
+
+    /**
+     * Remove skillGroupe
+     *
+     * @param \PW\PortfolioBundle\Entity\SkillGroupe $skillGroupe
+     */
+    public function removeSkillGroupe(\PW\PortfolioBundle\Entity\SkillGroupe $skillGroupe)
+    {
+        $this->skillGroupe->removeElement($skillGroupe);
+    }
+
+    /**
+     * Add skillGroup
+     *
+     * @param \PW\PortfolioBundle\Entity\SkillGroup $skillGroup
+     * @return User
+     */
+    public function addSkillGroup(\PW\PortfolioBundle\Entity\SkillGroup $skillGroup)
+    {
+        $this->skillGroup[] = $skillGroup;
+
+        return $this;
+    }
+
+    /**
+     * Remove skillGroup
+     *
+     * @param \PW\PortfolioBundle\Entity\SkillGroup $skillGroup
+     */
+    public function removeSkillGroup(\PW\PortfolioBundle\Entity\SkillGroup $skillGroup)
+    {
+        $this->skillGroup->removeElement($skillGroup);
     }
 }

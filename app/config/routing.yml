@@ -4,7 +4,7 @@ pw_portfolio:
 
 login:
     pattern:   /login
-    defaults:  { _controller: PWUserBundle:Security:login }
+    defaults:  { _controller: PWUserBundle:Security:connexion }
 
 login_check:
     pattern:   /login_check

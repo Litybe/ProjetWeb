@@ -2,8 +2,6 @@
 
 namespace PW\PortfolioBundle\Form;
 
-use PW\PortfolioBundle\Entity\Address;
-use PW\PortfolioBundle\Entity\Date;
 use PW\UserBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

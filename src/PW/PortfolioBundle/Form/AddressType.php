@@ -30,7 +30,7 @@ class AddressType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'PW\PortfolioBundle\Entity\Address'
+            //'data_class' => 'PW\PortfolioBundle\Entity\Address'
         ));
     }
 }

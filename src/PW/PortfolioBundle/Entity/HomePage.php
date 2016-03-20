@@ -20,16 +20,16 @@ class HomePage
      */
     private $homePageDesciptive;
 
-    /**
+ /*   /**
      * @ORM\OneToOne(targetEntity="PW\User\Entity\User", cascade={"persist"})
-     */
+     *
     private $user;
 
     /**
      * @ORM\OneToMany(targetEntity="PW\TrainingBundle\Entity\Image", mappedBy="homePage"})
-     */
+     *
     private $image;
-
+*/
     /**
      * @return mixed
      */

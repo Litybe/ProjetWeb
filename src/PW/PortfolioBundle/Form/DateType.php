@@ -2,7 +2,6 @@
 
 namespace PW\PortfolioBundle\Form;
 
-use PW\PortfolioBundle\Entity\Date;
 use PW\PortfolioBundle\Entity\Experience;
 use PW\PortfolioBundle\Entity\Project;
 use PW\PortfolioBundle\Entity\Training;
@@ -20,7 +19,7 @@ class DateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('dateTime',       new Date())
+            //->add('dateTime',       new Date())
             ->add('experience',     new Experience())
             ->add('training',       'text')
             ->add('user',           new User())
@@ -35,7 +34,7 @@ class DateType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'PW\PortfolioBundle\Entity\Date'
+            //'data_class' => 'PW\PortfolioBundle\Entity\Date'
         ));
     }
 }

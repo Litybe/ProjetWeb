@@ -26,7 +26,7 @@ class HomePageType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'PW\PortfolioBundle\Entity\HomePage'
+            //'data_class' => 'PW\PortfolioBundle\Entity\HomePage'
         ));
     }
 }
