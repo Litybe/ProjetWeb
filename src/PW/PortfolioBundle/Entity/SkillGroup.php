@@ -20,11 +20,6 @@ class SkillGroup
     private $nameSkillGroup;
 
     /**
-     * @ORM\ManyToMany(targetEntity="PW\Portfolio\Entity\Skill", cascade={"persist"})
-     */
-    private $skill;
-
-    /**
      * @return mixed
      */
     public function getSkill()

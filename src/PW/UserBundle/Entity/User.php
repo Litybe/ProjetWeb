@@ -16,10 +16,10 @@ use PW\PortfolioBundle\Entity\Training;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * User2
+ * User
  *
  * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="PW\UserBundle\Repository\User2Repository")
+ * @ORM\Entity(repositoryClass="PW\UserBundle\Repository\UserRepository")
  */
 class User implements UserInterface
 {

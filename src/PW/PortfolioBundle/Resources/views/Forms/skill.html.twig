@@ -1,0 +1,63 @@
+<h3>Ajouter une compétence</h3>
+
+<div class="well">
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {# Génération du label. #}
+        {{ form_label(form.nameSkill, "Nom de la compétence", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {# Affichage des erreurs pour ce champ précis. #}
+        {{ form_errors(form.nameSkill) }}
+
+        <div class="col-sm-4">
+            {# Génération de l'input. #}
+            {{ form_widget(form.nameSkill, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    {# Idem pour un autre champ. #}
+    <div class="form-group">
+        {{ form_label(form.skillMastery, "Maitrise", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_errors(form.skillMastery) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.skillMastery, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    {# Génération du label + error + widget pour un champ #}
+
+    {{ form_row(form.nameSkill) }}
+    {{ form_row(form.skillMastery) }}
+    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+    {{ form_widget(form.validate, {'attr': {'class': 'btn btn-primary'}}) }}
+
+    {# Génération automatique des champs pas encore écrits.
+        Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+       et tous les champs cachés (type « hidden »). #}
+    {{ form_rest(form) }}
+
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+</div>
+
+{# Affichage des compétences #}
+<ul>
+    {% for skill in listSkills %}
+        <li class="col-sm-6">
+            <div >{{ skill.nameSkill }}</div>
+            {% for mastery in 1..skill.skillMastery %}
+                <span class="glyphicon glyphicon-ok-sign" style="font-size: 1.5em; color:#0b7e00"></span>
+            {% endfor %}
+            {% if skill.skillMastery < 5 %}
+                {% for mastery in 1..5-skill.skillMastery %}
+                    <span class="glyphicon glyphicon-ok-circle" style="font-size: 1.5em; color:#0b7e00"></span>
+                {% endfor %}
+            {% endif %}
+
+        </li>
+    {% else %}
+        <li>Pas (encore !) de compétences</li>
+    {% endfor %}
+</ul>

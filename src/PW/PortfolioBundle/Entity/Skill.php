@@ -2,6 +2,7 @@
 
 namespace PW\PortfolioBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,6 +24,35 @@ class Skill
      * @var string
      */
     private $skillMastery;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="PW\Portfolio\Entity\SkillGroup", cascade={"persist"})
+     */
+    private $skillGroup;
+
+    public function __construct()
+    {
+        $this->skillGroup = new ArrayCollection();
+    }
+
+    public function addCategory(SkillGroup $skillGroup)
+    {
+        // Ici, on utilise l'ArrayCollection vraiment comme un tableau
+        $this->skillGroup[] = $skillGroup;
+        return $this;
+    }
+
+    public function removeCategory(SkillGroup $skillGroup)
+    {
+        // Ici on utilise une méthode de l'ArrayCollection, pour supprimer la catégorie en argument
+        $this->skillGroup->removeElement($skillGroup);
+    }
+
+    // Notez le pluriel, on récupère une liste de catégories ici !
+    public function getCategories()
+    {
+        return $this->skillGroup;
+    }
 
     /**
      * Get id
@@ -79,4 +109,6 @@ class Skill
     {
         return $this->skillMastery;
     }
+
+
 }

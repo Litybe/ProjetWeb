@@ -16,7 +16,13 @@ class SkillType extends AbstractType
     {
         $builder
             ->add('nameSkill',      'text')
-            ->add('skillMastery',   'integer')
+            ->add('skillMastery',   'integer', array(
+                'attr' => array(
+                    'min' => 1,
+                    'max' => 5,
+                    'step' => 1,
+                    'default' => 1
+                )))
             ->add('validate',       'submit')
         ;
     }

@@ -3,11 +3,12 @@
 
 namespace PW\UserBundle\Controller;
 
+use PW\PortfolioBundle\Entity\Skill;
+use PW\PortfolioBundle\Form\SkillType;
 use PW\PDO\QueryExecution;
 use Symfony\Bridge\Doctrine\Form\DataTransformer\CollectionToArrayTransformer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use PW\PortfolioBundle\Entity\Training;
 use PW\PortfolioBundle\Form\TrainingType;
 use Symfony\Component\HttpFoundation\Response;
 use Doctrine\ORM\Query\ResultSetMapping;
@@ -139,21 +140,37 @@ class SecurityController extends Controller
 
     public function testAction(Request $request)
     {
-        $training = new Training();
-        $form = $this->get('form.factory')->create(new TrainingType(), $training);
+        $skill = new  Skill();
 
-        if ($form->handleRequest($request)->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($training);
+        $form = $this->createForm(SkillType::class, $skill);
+        $em = $this->getDoctrine()->getManager();
+        $listSkills = array(
+            array('id' => 2, 'nameSkill' => 'PHP', 'skillMastery' => '1'),
+            array('id' => 3, 'nameSkill' => 'Javascript', 'skillMastery' => '2'),
+            array('id' => 4, 'nameSkill' => 'Jquery', 'skillMastery' => '3'),
+            array('id' => 5, 'nameSkill' => 'JB', 'skillMastery' => '5'),
+            array('id' => 6, 'nameSkill' => 'Word', 'skillMastery' => '4'),
+            array('id' => 7, 'nameSkill' => 'Menuiserie', 'skillMastery' => '1'),
+            array('id' => 8, 'nameSkill' => 'Lancé de bigornos', 'skillMastery' => '3'),
+            array('id' => 9, 'nameSkill' => 'Trotinette', 'skillMastery' => '3'),
+            array('id' => 9, 'nameSkill' => 'Equitation sur licornes', 'skillMastery' => '5')
+        );
+
+        if ($form->isValid()) {
+            // On l'enregistre notre objet $skill dans la base de données, par exemple
+            $em->persist($skill);
             $em->flush();
+            $request->getSession()->getFlashBag()->add('notice', 'Compétence bien enregistrée.');
 
-            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
-
+            // On redirige vers la page de visualisation de l'annonce nouvellement créée
             return $this->redirect($this->generateUrl('pw_user_test'));
         }
 
+
+
         return $this->render('PWUserBundle:test:test.html.twig', array(
             'form' => $form->createView(),
+            'listSkills' => $listSkills
         ));
     }
 }
