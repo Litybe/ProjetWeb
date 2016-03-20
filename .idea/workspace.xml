@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6744a6a7-1b6b-4c18-8dc7-3e2cb27f5dd8" name="Default" comment="Ajout du formulaire des skill mes negros et de l'affichage. La création des catégories est en cours.&#10;voili voilou, c'est tout pour moi,&#10;&#10;Votre Boss a tous">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PW/PortfolioBundle/Resources/views/Forms/skill.html.twig" />
+    <list default="true" id="6744a6a7-1b6b-4c18-8dc7-3e2cb27f5dd8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/PortfolioBundle/Entity/Skill.php" afterPath="$PROJECT_DIR$/src/PW/PortfolioBundle/Entity/Skill.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/PortfolioBundle/Entity/SkillGroup.php" afterPath="$PROJECT_DIR$/src/PW/PortfolioBundle/Entity/SkillGroup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/PortfolioBundle/Form/SkillType.php" afterPath="$PROJECT_DIR$/src/PW/PortfolioBundle/Form/SkillType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/UserBundle/Controller/SecurityController.php" afterPath="$PROJECT_DIR$/src/PW/UserBundle/Controller/SecurityController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/UserBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/PW/UserBundle/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/UserBundle/Resources/views/index.html.twig" afterPath="$PROJECT_DIR$/src/PW/UserBundle/Resources/views/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/UserBundle/Resources/views/test/test.html.twig" afterPath="$PROJECT_DIR$/src/PW/UserBundle/Resources/views/test/test.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/config.php" afterPath="$PROJECT_DIR$/web/config.php" />
     </list>
     <ignored path="ProjetWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1393,7 +1381,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458316533054</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Ajout du formulaire des skill mes negros et de l'affichage. La création des catégories est en cours.&#10;voili voilou, c'est tout pour moi,&#10;&#10;Votre Boss a tous">
+      <created>1458483714782</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1458483714783</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
