@@ -2,7 +2,6 @@
 
 namespace PW\PortfolioBundle\Form;
 
-use PW\UserBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,11 +15,11 @@ class TrainingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nameTraining',           'text')
+            ->add('trainingName',           'text')
             ->add('qualification',          'text')
             ->add('trainingDescriptive',    'textarea')
             ->add('date',                   'text')
-            ->add('address',                'text')
+            ->add('trainingAddress',        'text')
             ->add('validate',               'submit')
         ;
     }

@@ -15,8 +15,8 @@ class SkillGroupType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nameSkillGroup',     'text')
-            ->add('validate',           'submit')
+            ->add('nameSkillGroup', 'text')
+            ->add('validate',       'submit')
         ;
     }
     
@@ -28,5 +28,10 @@ class SkillGroupType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'PW\PortfolioBundle\Entity\SkillGroup'
         ));
+    }
+
+    public function getName()
+    {
+        return 'PW_portfoliobundle_skillgroup';
     }
 }

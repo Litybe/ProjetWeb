@@ -74,7 +74,7 @@ class Training
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -97,7 +97,7 @@ class Training
     /**
      * Get trainingName
      *
-     * @return string 
+     * @return string
      */
     public function getTrainingName()
     {
@@ -120,7 +120,7 @@ class Training
     /**
      * Get trainingDiploma
      *
-     * @return string 
+     * @return string
      */
     public function getTrainingDiploma()
     {
@@ -143,7 +143,7 @@ class Training
     /**
      * Get trainingAddress
      *
-     * @return string 
+     * @return string
      */
     public function getTrainingAddress()
     {
@@ -166,7 +166,7 @@ class Training
     /**
      * Get trainingZipCode
      *
-     * @return string 
+     * @return string
      */
     public function getTrainingZipCode()
     {
@@ -189,7 +189,7 @@ class Training
     /**
      * Get trainingCity
      *
-     * @return string 
+     * @return string
      */
     public function getTrainingCity()
     {
@@ -212,7 +212,7 @@ class Training
     /**
      * Get trainingDate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getTrainingDate()
     {
@@ -235,150 +235,10 @@ class Training
     /**
      * Get trainingDescriptive
      *
-     * @return string 
+     * @return string
      */
     public function getTrainingDescriptive()
     {
         return $this->trainingDescriptive;
-    }
-    /**
-     * @var string
-     */
-    private $nameTraining;
-
-    /**
-     * @var string
-     */
-    private $qualification;
-
-    /**
-     * @var \DateTime
-     */
-    private $date;
-
-    /**
-     * @var string
-     */
-    private $adress;
-
-    /**
-     * @var string
-     */
-    private $user;
-
-
-    /**
-     * Set nameTraining
-     *
-     * @param string $nameTraining
-     * @return Training
-     */
-    public function setNameTraining($nameTraining)
-    {
-        $this->nameTraining = $nameTraining;
-
-        return $this;
-    }
-
-    /**
-     * Get nameTraining
-     *
-     * @return string 
-     */
-    public function getNameTraining()
-    {
-        return $this->nameTraining;
-    }
-
-    /**
-     * Set qualification
-     *
-     * @param string $qualification
-     * @return Training
-     */
-    public function setQualification($qualification)
-    {
-        $this->qualification = $qualification;
-
-        return $this;
-    }
-
-    /**
-     * Get qualification
-     *
-     * @return string 
-     */
-    public function getQualification()
-    {
-        return $this->qualification;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return Training
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime 
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * Set adress
-     *
-     * @param string $adress
-     * @return Training
-     */
-    public function setAdress($adress)
-    {
-        $this->adress = $adress;
-
-        return $this;
-    }
-
-    /**
-     * Get adress
-     *
-     * @return string 
-     */
-    public function getAdress()
-    {
-        return $this->adress;
-    }
-
-    /**
-     * Set user
-     *
-     * @param string $user
-     * @return Training
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return string 
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 }

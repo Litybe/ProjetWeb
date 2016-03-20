@@ -23,6 +23,11 @@ class SkillType extends AbstractType
                     'step' => 1,
                     'default' => 1
                 )))
+           /* ->add('skillGroup',     'collection', array(
+                'type'          =>  new SkillGroupType(),
+                'allow_add'     =>  true,
+                'allow_delete'  =>  true
+            ))*/
             ->add('validate',       'submit')
         ;
     }

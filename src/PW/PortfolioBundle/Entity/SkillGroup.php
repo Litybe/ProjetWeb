@@ -2,13 +2,14 @@
 
 namespace PW\PortfolioBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * SkillGroup
  *
  * @ORM\Table(name="skill_groupe")
- * @ORM\Entity(repositoryClass="PW\PortfolioBundle\Repository\SkillGroupeRepository")
+ * @ORM\Entity(repositoryClass="PW\PortfolioBundle\Repository\SkillGroupRepository")
  */
 class SkillGroup
 {
@@ -28,6 +29,36 @@ class SkillGroup
      */
     private $skillGroupName;
 
+    /**
+     * @var string
+     */
+    private $nameSkillGroup;
+
+    /**
+     * @ORM\OneToMany(targetEntity="PW\Portfolio\Entity\SkillGroup", mappedBy="skillGroup")
+     */
+    private $skillList;
+
+    public function __construct()
+    {
+        $this->skillList = new ArrayCollection();
+    }
+
+    public function addSkillGroup(SkillGroup $skillList)
+    {
+        $this->skillList[] = $skillList;
+        return $this;
+    }
+
+    public function removeSkillList(SkillGroup $skillList)
+    {
+        $this->skillList->removeElement($skillList);
+    }
+
+    public function getSkillList()
+    {
+        return $this->skillList;
+    }
 
     /**
      * Get id
@@ -55,17 +86,12 @@ class SkillGroup
     /**
      * Get skillGroupeName
      *
-     * @return string 
+     * @return string
      */
     public function getSkillGroupName()
     {
         return $this->skillGroupName;
     }
-    /**
-     * @var string
-     */
-    private $nameSkillGroup;
-
 
     /**
      * Set nameSkillGroup

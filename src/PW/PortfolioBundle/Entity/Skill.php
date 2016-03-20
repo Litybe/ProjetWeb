@@ -2,7 +2,6 @@
 
 namespace PW\PortfolioBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,38 +29,9 @@ class Skill
     private $skillName;
 
     /**
-     * @ORM\ManyToMany(targetEntity="PW\Portfolio\Entity\SkillGroup", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="PW\Portfolio\Entity\SkillGroup", mappedBy="skillList")
      */
     private $skillGroup;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="PW\Portfolio\Entity\SkillGroup", cascade={"persist"})
-     */
-    private $skillGroup;
-
-    public function __construct()
-    {
-        $this->skillGroup = new ArrayCollection();
-    }
-
-    public function addCategory(SkillGroup $skillGroup)
-    {
-        // Ici, on utilise l'ArrayCollection vraiment comme un tableau
-        $this->skillGroup[] = $skillGroup;
-        return $this;
-    }
-
-    public function removeCategory(SkillGroup $skillGroup)
-    {
-        // Ici on utilise une méthode de l'ArrayCollection, pour supprimer la catégorie en argument
-        $this->skillGroup->removeElement($skillGroup);
-    }
-
-    // Notez le pluriel, on récupère une liste de catégories ici !
-    public function getCategories()
-    {
-        return $this->skillGroup;
-    }
 
     /**
      * @return mixed
@@ -82,7 +52,7 @@ class Skill
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -105,12 +75,13 @@ class Skill
     /**
      * Get skillName
      *
-     * @return string 
+     * @return string
      */
     public function getSkillName()
     {
         return $this->skillName;
     }
+
     /**
      * @var string
      */
@@ -138,7 +109,7 @@ class Skill
     /**
      * Get nameSkill
      *
-     * @return string 
+     * @return string
      */
     public function getNameSkill()
     {
@@ -161,12 +132,10 @@ class Skill
     /**
      * Get skillMastery
      *
-     * @return string 
+     * @return string
      */
     public function getSkillMastery()
     {
         return $this->skillMastery;
     }
-
-
 }

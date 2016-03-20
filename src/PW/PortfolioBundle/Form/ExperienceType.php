@@ -18,7 +18,7 @@ class ExperienceType extends AbstractType
             ->add('job',        'text')
             ->add('firm',       'text')
             ->add('mission',    'text')
-            ->add('validate',               'submit')
+            ->add('validate',   'submit')
         ;
     }
     

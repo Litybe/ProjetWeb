@@ -1,29 +1,47 @@
 PW\PortfolioBundle\Entity\Training:
     type: entity
     table: null
-    repositoryClass: PW\PortfolioBundle\Repository\TrainingRepository
+    repositoryClass: PW\PortfolioBundle\Repository\ThemeRepository
     id:
         id:
             type: integer
             id: true
             generator:
                 strategy: AUTO
+
     fields:
-        nameTraining:
-            type: string
-            length: 255
-        qualification:
-            type: string
-            length: 255
-        trainingDescriptive:
-            type: string
-            length: 255
-        date:
-            type: date
-        adress:
-            type: string
-            length: 255
-        user:
-            type: string
-            length: 255
+            trainingDiploma:
+                type: string
+                length: 255
+                column: Name_Theme
+
+    fields:
+            trainingAddress:
+                type: string
+                length: 255
+                column: Name_Theme
+
+    fields:
+            trainingZipCode:
+                type: date
+                length: 255
+                column: Name_Theme
+
+    fields:
+            $trainingCity:
+                type: string
+                length: 255
+                column: Name_Theme
+
+    fields:
+            $trainingDate:
+                type: string
+                length: 255
+                column: Name_Theme
+
+    fields:
+            trainingDescriptive:
+                type: string
+                length: 255
+                column: Name_Theme
     lifecycleCallbacks: {  }
