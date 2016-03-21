@@ -16,9 +16,9 @@ class TrainingType extends AbstractType
     {
         $builder
             ->add('trainingName',           'text')
-            ->add('qualification',          'text')
-            ->add('trainingDescriptive',    'textarea')
-            ->add('date',                   'text')
+            ->add('trainingDiploma',          'text')
+            ->add('trainingDescriptive',    'text')
+            ->add('trainingDate',                   'text')
             ->add('trainingAddress',        'text')
             ->add('validate',               'submit')
         ;

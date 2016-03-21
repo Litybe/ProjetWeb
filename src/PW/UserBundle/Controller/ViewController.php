@@ -48,7 +48,13 @@ class ViewController extends controller
         $profile->setEmail($result['email']);
         $profile->setCellphone($result['Cellphone']);
         $profile->setPassword($result['password']);
-        $profile->setIsVisibleLastName($result['IsVisibleLastName']);
+        $profile->setIsVisibleLastName((bool)$result['IsVisibleLastName']);
+        $profile->setIsVisibleFirstName((bool)$result['IsVisibleFirstName']);
+        $profile->setIsVisibleEmail((bool)$result['IsVisibleEmail']);
+        $profile->setIsVisibleLastName((bool)$result['IsVisibleAddress']);
+        $profile->setAddress($result['UserAddress']);
+        $profile->setZipcode($result['UserZipCode']);
+        $profile->setCity($result['UserCity']);
         $form = $this->get('form.factory')->create($profile, $user);
 
 
@@ -58,14 +64,14 @@ class ViewController extends controller
                 $user->getFirstName(),
                 $user->getEmail(),
                 $user->getCellphone(),
-                'address',
-                'zipcode',
-                'city',
-                '1',
-                '1',
-                '1',
-                '1',
-                '1',
+                $user->getUserAddress(),
+                $user->getUserZipCode(),
+                $user->getUserCity(),
+                (int)$user->getIsVisibleLastName(),
+                (int)$user->getIsVisibleFirstName(),
+                (int)$user->getIsVisibleEmail(),
+                (int)$user->getIsVisibleCellphone(),
+                (int)$user->getIsVisibleAddress(),
                 $user->getPassword(),
                 $userId
             );

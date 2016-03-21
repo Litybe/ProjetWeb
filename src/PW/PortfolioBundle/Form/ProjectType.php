@@ -16,7 +16,7 @@ class ProjectType extends AbstractType
     {
         $builder
             ->add('ProjectName',        'text')
-            ->add('ProjectDescriptive', 'textArea')
+            ->add('ProjectDescriptive', 'text')
             ->add('ProjectLink',        'text')
             ->add('validate',           'submit')
         ;
