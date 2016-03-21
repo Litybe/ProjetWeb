@@ -43,8 +43,20 @@ class ViewController extends controller
         );
 
         $user = new User();
+        $profile = new ProfileType();
+        $em = $this->getDoctrine()->getManager()
+                                 ->getConnection();
+        $id=array(1);
+        $query = $em->prepare($this->pdo->getProcedureString('profile',$id));
+        $query->execute($id);
+        $result=$query->fetch();
+        $profile->setLastname($result['LastName']);
+        $profile->setFirstname($result['FirstName']);
+        $profile->setEmail($result['email']);
+        $profile->setCellphone($result['Cellphone']);
+        $profile->setPassword($result['password']);
+        $form = $this->get('form.factory')->create($profile, $user);
 
-        $form = $this->get('form.factory')->create(new ProfileType(), $user);
 
         if ($form->handleRequest($request)->isValid()) {
             $param =array(
@@ -56,8 +68,7 @@ class ViewController extends controller
                 $user->getPassword(),
                 'a:1:{i:0;s:9:"ROLE_USER";}'
             );
-            $em = $this->getDoctrine()->getManager()
-                                      ->getConnection();
+
 
             $query = $em->prepare($this->pdo->getProcedureString('registering',$param));
             $query->execute($param);
