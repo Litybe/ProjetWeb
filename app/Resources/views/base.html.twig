@@ -46,16 +46,28 @@
                     </li>
                 </ul>
 
+
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href={% if app.user == null %}
-                           {{ path('pw_user_connexion') }}
-                        {% else %}{{ path('pw_user_profile') }}{% endif %}
-                    </li><li>
-                            {% if app.user == null %}
-                                PSEUDO
-                            {% else %}{{ app.user.username }}{% endif %}</a></li>
-                </ul>
-            </div>
+
+                <a class="btn btn-default navbar-btn" href=
+                {% if app.user == null %}
+                               {{ path('pw_user_connexion') }}
+                        {% else %}{{ path('logout') }}{% endif %}>
+                    {% if app.user == null %}
+                        Connexion
+                    {% else %}Deconnexion{% endif %}
+                </a>
+
+
+                <li><a href={% if app.user == null %}
+                        {{ path('pw_user_connexion') }}
+                    {% else %}{{ path('pw_user_profile') }}{% endif %}
+                       </li><li>
+                    {% if app.user == null %}
+                    PSEUDO
+                    {% else %}{{ app.user.username }}{% endif %}</a></li>
+            </ul>
+        </div>
         </div>
     </nav><br /><br />
 

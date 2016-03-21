@@ -31,6 +31,17 @@ class ViewController extends controller
 
     public function profileAction(Request $request)
     {
+
+        $param =array(
+            $request->request->get('form-first-name'),
+            $request->request->get('form-last-name'),
+            $request->request->get('form-email'),
+            $request->request->get('form-cellphone'),
+            $request->request->get('form-pseudo'),
+            $request->request->get('form-password'),
+            'a:1:{i:0;s:9:"ROLE_USER";}'
+        );
+
         $user = new User();
 
         $form = $this->get('form.factory')->create(new ProfileType(), $user);
