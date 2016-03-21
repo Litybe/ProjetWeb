@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6744a6a7-1b6b-4c18-8dc7-3e2cb27f5dd8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/app/SymfonyRequirements.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/PortfolioBundle/Controller/PortfolioController.php" afterPath="$PROJECT_DIR$/src/PW/PortfolioBundle/Controller/PortfolioController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/UserBundle/Controller/ViewController.php" afterPath="$PROJECT_DIR$/src/PW/UserBundle/Controller/ViewController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/UserBundle/Form/ProfileType.php" afterPath="$PROJECT_DIR$/src/PW/UserBundle/Form/ProfileType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PW/UserBundle/Resources/views/Profile/profile.html.twig" afterPath="$PROJECT_DIR$/src/PW/UserBundle/Resources/views/Profile/profile.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/config.php" afterPath="$PROJECT_DIR$/web/config.php" />
     </list>
     <ignored path="ProjetWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1100,7 +1093,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458553047016</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="page du profile bien belle">
+      <created>1458568077523</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1458568077523</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1146,7 +1145,8 @@
     <MESSAGE value="all page edit, rooting pur ces page, la mm sur le portfolio" />
     <MESSAGE value="ajout navbar" />
     <MESSAGE value="Ajout page test accessible depuis la navbar déroulant &quot;Mon Portfolio&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout page test accessible depuis la navbar déroulant &quot;Mon Portfolio&quot;" />
+    <MESSAGE value="page du profile bien belle" />
+    <option name="LAST_COMMIT_MESSAGE" value="page du profile bien belle" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
