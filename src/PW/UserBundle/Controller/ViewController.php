@@ -34,17 +34,6 @@ class ViewController extends controller
 
     public function profileAction(Request $request)
     {
-
-        $param =array(
-            $request->request->get('form-first-name'),
-            $request->request->get('form-last-name'),
-            $request->request->get('form-email'),
-            $request->request->get('form-cellphone'),
-            $request->request->get('form-pseudo'),
-            $request->request->get('form-password'),
-            'a:1:{i:0;s:9:"ROLE_USER";}'
-        );
-
         $user = new User();
         $profile = new ProfileType();
         $userId = $this->container->get('security.context')->getToken()->getUser()->getId();
@@ -59,7 +48,7 @@ class ViewController extends controller
         $profile->setEmail($result['email']);
         $profile->setCellphone($result['Cellphone']);
         $profile->setPassword($result['password']);
-        $profile->setTest(true);
+        $profile->setIsVisibleLastName($result['IsVisibleLastName']);
         $form = $this->get('form.factory')->create($profile, $user);
 
 

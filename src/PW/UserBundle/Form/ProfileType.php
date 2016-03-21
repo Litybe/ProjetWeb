@@ -18,6 +18,7 @@ class ProfileType extends AbstractType
     private $isVisibleEmail;
     private $cellphone;
     private $isVisibleCellphone;
+    private $isVisibleAddress;
     private $password;
     private $address;
     private $zipcode;
@@ -61,6 +62,9 @@ class ProfileType extends AbstractType
             ))
             ->add('UserAddress',    TextType::class,array(
                 'data' => $this->getAddress()
+            ))
+            ->add('isVisibleAddress',    'checkbox',array(
+                'data' => $this->getIsVisibleAddress()
             ))
             ->add('UserZipCode',    TextType::class,array(
                 'data' => $this->getZipcode()
@@ -310,6 +314,22 @@ class ProfileType extends AbstractType
     public function setCity($city)
     {
         $this->city = $city;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsVisibleAddress()
+    {
+        return $this->isVisibleAddress;
+    }
+
+    /**
+     * @param mixed $isVisibleAddress
+     */
+    public function setIsVisibleAddress($isVisibleAddress)
+    {
+        $this->isVisibleAddress = $isVisibleAddress;
     }
 
 }
