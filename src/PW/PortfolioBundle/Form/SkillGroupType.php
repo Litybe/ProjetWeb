@@ -15,7 +15,7 @@ class SkillGroupType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nameSkillGroup', 'text')
+            ->add('skillGroupName', 'text')
             ->add('validate',       'submit')
         ;
     }

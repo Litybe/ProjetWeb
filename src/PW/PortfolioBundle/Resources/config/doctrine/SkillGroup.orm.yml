@@ -9,8 +9,8 @@ PW\PortfolioBundle\Entity\SkillGroup:
             generator:
                 strategy: AUTO
     fields:
-        nameSkillGroup:
+        skillGroupName:
             type: string
             length: 255
-            column: Name_SkillGroup
+            column: SkillGroup_Name
     lifecycleCallbacks: {  }

@@ -25,14 +25,20 @@ class Skill
     /**
      * @var string
      *
-     * @ORM\Column(name="SkillName", type="string", length=255)
+     * @ORM\Column(name="SkillName", type="string", length=255, unique=true)
      */
     private $skillName;
 
     /**
-     * @ORM\ManyToMany(targetEntity="PW\Portfolio\Entity\SkillGroup", cascade={"persist"})
+     * @var string
+     */
+    private $skillMastery;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="PW\PortfolioBundle\Entity\SkillGroup", cascade={"persist"})
      */
     private $skillGroup;
+
 
     public function __construct()
     {
@@ -105,39 +111,6 @@ class Skill
     public function getSkillName()
     {
         return $this->skillName;
-    }
-    /**
-     * @var string
-     */
-    private $nameSkill;
-
-    /**
-     * @var string
-     */
-    private $skillMastery;
-
-
-    /**
-     * Set nameSkill
-     *
-     * @param string $nameSkill
-     * @return Skill
-     */
-    public function setNameSkill($nameSkill)
-    {
-        $this->nameSkill = $nameSkill;
-
-        return $this;
-    }
-
-    /**
-     * Get nameSkill
-     *
-     * @return string 
-     */
-    public function getNameSkill()
-    {
-        return $this->nameSkill;
     }
 
     /**

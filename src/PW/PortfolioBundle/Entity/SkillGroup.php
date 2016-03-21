@@ -25,45 +25,37 @@ class SkillGroup
     /**
      * @var string
      *
-     * @ORM\Column(name="SkillGroupName", type="string", length=255)
+     * @ORM\Column(name="SkillGroupName", type="string", length=255, unique=true)
      */
     private $skillGroupName;
 
-    /**
-     * @var string
-     */
-    private $nameSkillGroup;
 
-    /**
-     * @ORM\OneToMany(targetEntity="PW\Portfolio\Entity\SkillGroup", mappedBy="skillGroup")
-     */
-    private $skillList;
 
     public function __construct()
     {
-        $this->skillList = new ArrayCollection();
+        $this->skills = new ArrayCollection();
     }
 
-    public function addSkillGroup(SkillGroup $skillList)
+    public function addSkill(SkillGroup $skills)
     {
-        $this->skillList[] = $skillList;
+        $this->skills[] = $skills;
         return $this;
     }
 
-    public function removeSkillList(SkillGroup $skillList)
+    public function removeSkill(SkillGroup $skills)
     {
-        $this->skillList->removeElement($skillList);
+        $this->skills->removeElement($skills);
     }
 
-    public function getSkillList()
+    public function getSkills()
     {
-        return $this->skillList;
+        return $this->skills;
     }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -91,28 +83,5 @@ class SkillGroup
     public function getSkillGroupName()
     {
         return $this->skillGroupName;
-    }
-
-    /**
-     * Set nameSkillGroup
-     *
-     * @param string $nameSkillGroup
-     * @return SkillGroup
-     */
-    public function setNameSkillGroup($nameSkillGroup)
-    {
-        $this->nameSkillGroup = $nameSkillGroup;
-
-        return $this;
-    }
-
-    /**
-     * Get nameSkillGroup
-     *
-     * @return string 
-     */
-    public function getNameSkillGroup()
-    {
-        return $this->nameSkillGroup;
     }
 }

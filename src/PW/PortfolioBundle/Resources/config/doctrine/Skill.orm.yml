@@ -9,10 +9,11 @@ PW\PortfolioBundle\Entity\Skill:
             generator:
                 strategy: AUTO
     fields:
-        nameSkill:
+        skillName:
             type: string
             length: 255
-            column: Name_Skill
+            column: Skill_Name
+
         skillMastery:
             type: string
             length: 255

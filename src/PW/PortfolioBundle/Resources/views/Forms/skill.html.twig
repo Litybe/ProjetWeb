@@ -7,13 +7,13 @@
 
         <div class="form-group">
             {# Génération du label. #}
-            {{ form_label(form.nameSkill, "Nom de la compétence", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {{ form_label(form.skillName, "Nom de la compétence", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
             {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.nameSkill) }}
+            {{ form_errors(form.skillName) }}
 
             <div class="col-sm-4">
                 {# Génération de l'input. #}
-                {{ form_widget(form.nameSkill, {'attr': {'class': 'form-control'}}) }}
+                {{ form_widget(form.skillName, {'attr': {'class': 'form-control'}}) }}
             </div>
         </div>
 
@@ -26,12 +26,24 @@
             </div>
         </div>
 
-        {# Génération du label + error + widget pour un champ #}
+        <div class="form-group">
+            {{ form_label(form.skillGroup, "Liste des catégories", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {{ form_errors(form.skillGroup) }}
+            <div class="col-sm-4">
+                {{ form_widget(form.skillGroup, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
 
-        {{ form_row(form.nameSkill) }}
+
+
+
+{# Génération du label + error + widget pour un champ #}
+
+        {{ form_row(form.skillName) }}
         {{ form_row(form.skillMastery) }}
+
         {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-        {{ form_widget(form.validate, {'attr': {'class': 'btn btn-primary'}}) }}
+        {{ form_widget(form.validate, {'attr': {'class': 'col-sm-offset-3 btn btn-primary'}}) }}
 
         {# Génération automatique des champs pas encore écrits.
             Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
@@ -41,50 +53,61 @@
         {# Fermeture de la balise <form> du formulaire HTML #}
         {{ form_end(form) }}
     </div>
+</div>
 
 
-    <h3>Ajouter une Catégorie</h3>
-    <div class="well">
-        <div class="form-group">
-            {{ form_label(formGroup.nameSkillGroup, "Nom de la catégorie", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-            {{ form_errors(formGroup.nameSkillGroup) }}
-            <div class="col-sm-4">
-                {{ form_widget(formGroup.nameSkillGroup, {'attr': {'class': 'form-control'}}) }}
+
+    <div class="container">
+        <h3>Ajouter une catégorie</h3>
+        <div class="well well-lg">
+            {{ form_start(formGroup, {'attr': {'class': 'form-horizontal'}}) }}
+            {# Les erreurs générales du formulaire. #}
+            {{ form_errors(formGroup) }}
+
+
+            {# Idem pour un autre champ. #}
+            <div class="form-group">
+                {{ form_label(formGroup.skillGroupName, "Nom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                {{ form_errors(formGroup.skillGroupName) }}
+                <div class="col-sm-4">
+                    {{ form_widget(formGroup.skillGroupName, {'attr': {'class': 'form-control'}}) }}
+                </div>
             </div>
+
+            {# Génération du label + error + widget pour un champ #}
+
+            {{ form_row(formGroup.skillGroupName) }}
+            {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+            {{ form_widget(formGroup.validate, {'attr': {'class': 'col-sm-offset-3 btn btn-primary'}}) }}
+
+            {# Génération automatique des champs pas encore écrits.
+                Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+               et tous les champs cachés (type « hidden »). #}
+            {{ form_rest(formGroup) }}
+
+            {# Fermeture de la balise <form> du formulaire HTML #}
+            {{ form_end(formGroup) }}
         </div>
 
+        {# Affichage des compétences #}
+        <ul>
+            {% for skill in listSkills %}
+                <li class="col-sm-5">
+                    <div >{{ skill.nameSkill }}</div>
+                    {% for mastery in 1..skill.skillMastery %}
+                        <span class="glyphicon glyphicon-ok-sign" style="font-size: 1.5em; color:#0b7e00"></span>
+                    {% endfor %}
+                    {% if skill.skillMastery < 5 %}
+                        {% for mastery in 1..5-skill.skillMastery %}
+                            <span class="glyphicon glyphicon-ok-circle" style="font-size: 1.5em; color:#0b7e00"></span>
+                        {% endfor %}
+                    {% endif %}
 
-        {{ form_row(formGroup.nameSkillGroup) }}
-        {{ form_widget(formGroup.validate, {'attr': {'class': 'btn btn-primary'}}) }}
-
-        {{ form_rest(formGroup) }}
-
-        {{ form_end(formGroup) }}
+                </li>
+            {% else %}
+                <li>Pas (encore !) de compétences</li>
+            {% endfor %}
+        </ul>
     </div>
 
-    <ul>
-        {% for skill in listSkills %}
-            <li class="col-sm-6">
-                <div >{{ skill.nameSkill }}</div>
-                {% for mastery in 1..skill.skillMastery %}
-                    <span class="glyphicon glyphicon-ok-sign" style="font-size: 1.5em; color:#0b7e00"></span>
-                {% endfor %}
-                {% if skill.skillMastery < 5 %}
-                    {% for mastery in 1..5-skill.skillMastery %}
-                        <span class="glyphicon glyphicon-ok-circle" style="font-size: 1.5em; color:#0b7e00"></span>
-                    {% endfor %}
-                {% endif %}
-
-            </li>
-        {% else %}
-            <li>Pas (encore !) de compétences</li>
-        {% endfor %}
-    </ul>
 </div>
-{# Affichage des compétences #}
-
-
-
-
-
-
