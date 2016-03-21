@@ -41,43 +41,8 @@ class SecurityController extends Controller
             'last_username' => $authenticationUtils->getLastUsername(),
             'error'         => $authenticationUtils->getLastAuthenticationError(),
         ));
-        /*/*entity:
-        class:    PW\UserBundle\Entity\User
-                property: pseudo
-        $pseudo = $request->query->get('form-pseudo');
-        $password = $request->query->get('form-password');
-        $param =array(
-            $pseudo,
-            $password
-        );
-        $em = $this->getDoctrine()->getManager()
-                                  ->getConnection();
-        $query = $em->prepare($this->pdo->getProcedureString('connection',$param));
-        $query->execute($param);
-        $result = $query->fetch();
-        if($result['Pseudo']==$pseudo AND $result['UserPassword']==$password){
-            return $this->render('PWUserBundle:Profile:profile.html.twig');
-        }
-        else{
-            $authenticationUtils = $this->get('security.authentication_utils');
-
-            return $this->render('PWUserBundle:connexion:login.html.twig', array(
-                'last_username' => $authenticationUtils->getLastUsername(),
-                'error'         => $authenticationUtils->getLastAuthenticationError(),
-            ));
-        }*/
-
     }
        public function registerAction(Request $request){
-
-
-        $lastName = $request->request->get('form-first-name');
-        $firstName = $request->request->get('form-last-name');
-        $email = $request->request->get('form-email');
-        $cellphone = $request->request->get('form-cellphone');
-        $pseudo = $request->request->get('form-pseudo');
-        $password = $request->request->get('form-password');
-
         $param =array(
             $request->request->get('form-first-name'),
             $request->request->get('form-last-name'),
@@ -89,7 +54,7 @@ class SecurityController extends Controller
         );
         $em = $this->getDoctrine()->getManager()
                                   ->getConnection();
-        $query = $em->prepare($this->pdo->getProcedureString('registering',$param));
+        $query = $em->prepare($this->pdo->getProcedureString('profileupdate',$param));
         $query->execute($param);
            $authenticationUtils = $this->get('security.authentication_utils');
 

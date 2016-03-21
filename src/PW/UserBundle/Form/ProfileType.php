@@ -2,6 +2,7 @@
 namespace PW\UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -18,6 +19,10 @@ class ProfileType extends AbstractType
     private $cellphone;
     private $isVisibleCellphone;
     private $password;
+    private $address;
+    private $zipcode;
+    private $city;
+
 
 
 
@@ -54,6 +59,15 @@ class ProfileType extends AbstractType
             ->add('isVisibleCellphone',    'checkbox',array(
                 'data' => $this->getIsVisibleCellphone()
             ))
+            ->add('UserAddress',    TextType::class,array(
+                'data' => $this->getAddress()
+            ))
+            ->add('UserZipCode',    TextType::class,array(
+                'data' => $this->getZipcode()
+            ))
+            ->add('UserCity',    TextType::class,array(
+                'data' => $this->getCity()
+            ))
             //->add('BirthDate',       BirthdayType::class)
             ->add('Password',      PasswordType::class,array(
                 'data' => $this->getPassword()
@@ -72,6 +86,22 @@ class ProfileType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'PW\UserBundle\Entity\User'
         ));
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTest()
+    {
+        return $this->test;
+    }
+
+    /**
+     * @param mixed $test
+     */
+    public function setTest($test)
+    {
+        $this->test = $test;
     }
 
     /**
@@ -233,4 +263,53 @@ class ProfileType extends AbstractType
     {
         $this->isVisibleCellphone = $isVisibleCellphone;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param mixed $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getZipcode()
+    {
+        return $this->zipcode;
+    }
+
+    /**
+     * @param mixed $zipcode
+     */
+    public function setZipcode($zipcode)
+    {
+        $this->zipcode = $zipcode;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param mixed $city
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
 }

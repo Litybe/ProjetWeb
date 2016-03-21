@@ -43,9 +43,10 @@ class ViewController extends controller
 
         $user = new User();
         $profile = new ProfileType();
+        $userId = $this->container->get('security.context')->getToken()->getUser()->getId();
         $em = $this->getDoctrine()->getManager()
                                  ->getConnection();
-        $id=array(1);
+        $id=array($userId);
         $query = $em->prepare($this->pdo->getProcedureString('profile',$id));
         $query->execute($id);
         $result=$query->fetch();
@@ -54,6 +55,7 @@ class ViewController extends controller
         $profile->setEmail($result['email']);
         $profile->setCellphone($result['Cellphone']);
         $profile->setPassword($result['password']);
+        $profile->setTest(true);
         $form = $this->get('form.factory')->create($profile, $user);
 
 
@@ -63,13 +65,20 @@ class ViewController extends controller
                 $user->getFirstName(),
                 $user->getEmail(),
                 $user->getCellphone(),
-                $user->getUsername(),
+                'address',
+                'zipcode',
+                'city',
+                '1',
+                '1',
+                '1',
+                '1',
+                '1',
                 $user->getPassword(),
-                'a:1:{i:0;s:9:"ROLE_USER";}'
+                $userId
             );
 
 
-            $query = $em->prepare($this->pdo->getProcedureString('registering',$param));
+            $query = $em->prepare($this->pdo->getProcedureString('PS_UPDATE_USER',$param));
             $query->execute($param);
 
 
