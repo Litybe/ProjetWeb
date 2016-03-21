@@ -76,7 +76,7 @@
     <div class="jumbotron">
         <div class="container">
             <h1>{% block PageName %}Accueil{% endblock %}</h1>
-            <p>{% block PageDescription %}Bonjour est bienvenu sur le . Ce site vous permet de créer et partager vôtre ePortefolio.{% endblock %}</p>
+            <p>{% block PageDescription %}Bonjour est bienvenu sur le site mon ePortfolio. Ce site vous permet de créer et partager vôtre ePortefolio.{% endblock %}</p>
         </div>
     </div>
         {% block body %}
@@ -84,18 +84,18 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h2>Description</h2>
-                        <p>Sur ce site vous allez pouvoir créer votre ePortfolio personnalisé. Vous pouvez accéder a l'ensemble des ePortefolio des utilisateurs. </p>
+                        <p>Sur ce site vous allez pouvoir créer votre ePortfolio personnalisé. Vous pouvez accéder a l'ensemble des ePortefolio des autres utilisateur. </p>
                     </div>
 
 
                     <div class="col-md-4">
                         <h2>Nous Rejoindre</h2>
-                        <p>Vous pouvez déjà procéder a une inscription pour pouvoir créer votre ePortfolio</p>
-                        <p><a class="btn btn-default" href="#" role="button">Inscription &raquo;</a></p>
+                        <p>Vous pouvez déjà procéder à une inscription cela vous permettra de créer votre propre ePortfolio</p>
+                        <p><a class="btn btn-default" href={{ path('pw_user_connexion') }} role="button">Inscription &raquo;</a></p>
                     </div>
                     <div class="col-md-4">
                         <h2>Nous contacter</h2>
-                        <p>Vous pouvez nous contacter avec l'adresse mail suivante.</p>
+                        <p>Vous pouvez nous contacter avec l'adresse mail suivante. mailAdmin@eportfolio.com</p>
                     </div>
                 </div>
             </div>
