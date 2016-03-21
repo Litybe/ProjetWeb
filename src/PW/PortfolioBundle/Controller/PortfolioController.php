@@ -30,22 +30,10 @@ class PortfolioController extends Controller
 
     }
 
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-        $training = new Training();
-        $form = $this->get('form.factory')->create(new TrainingType(),$training);
-        if ($form->handleRequest($request)->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($training);
-            $em->flush();
 
-            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
-
-            return $this->redirect($this->generateUrl('pw_user_test'));
-        }
-        return $this->render('PWPortfolioBundle:Forms:training.html.twig',array(
-            'form'=>$form->createView(),
-        ));
+        return $this->render('PWPortfolioBundle:Home:editHome.html.twig');
     }
     public function informationAction()
     {

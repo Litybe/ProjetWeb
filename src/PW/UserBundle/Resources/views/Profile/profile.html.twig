@@ -4,14 +4,77 @@
 {% block PageName %}Profile{% endblock %}
 {% block  PageDescription %}Vous avez accées a vos données personnel vous pouvez les modifiers et choisir si ils peuvent être visible ou non par les différents visiteurs.{% endblock %}
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Information personnel</h2>
-                <form action="{{ path('pw_user_profile') }}" method="post">
-                    {{ form(form) }}
-                </form>
+
+<div class="container">
+    {{ form_start(form, {'attr': {'class': 'form-box'}}) }}
+    <div class="form-box">
+        <div class="form-top">
+            <div class="form-top-left">
+                <h3>Informations personnelles</h3>
+                <p>Modifier vos informations personnelles:</p>
+            </div>
+            <div class="col-sm-offset-7"><p>Afficher</p></div>
+            <div class="form-top-right">
+                <i class="fa fa-key"></i>
+            </div>
+        </div>
+        <div class="form-bottom">
+            <div class="form-group">
+                {{ form_label(form.LastName, "Nom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-4">
+                    {{ form_widget(form.LastName, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div>
+                    {{ form_widget(form.isVisibleLastName, {'attr': {'class': 'checkbox'}}) }}
+                </div></br>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.FirstName, "Prénom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-4">
+                    {{ form_widget(form.FirstName, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div>
+                    {{ form_widget(form.isVisibleFirstName, {'attr': {'class': 'checkbox'}}) }}
+                </div></br>
+            </div>
+            <div class="form-group">
+
+                {{ form_label(form.Email, "Email", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-4">
+                    {{ form_widget(form.Email, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div>
+                    {{ form_widget(form.isVisibleEmail, {'attr': {'class': 'checkbox'}}) }}
+                </div></br>
+            </div>
+            <div class="form-group">
+
+                {{ form_label(form.Cellphone, "Téléphone", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-4">
+                    {{ form_widget(form.Cellphone, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div>
+                    {{ form_widget(form.isVisibleCellphone, {'attr': {'class': 'checkbox'}}) }}
+                </div></br>
+            </div>
+
+            <div class="form-group">
+
+                {{ form_label(form.Password, "Mot de passe", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-4">
+                    {{ form_widget(form.Password, {'attr': {'class': 'form-control'}}) }}
+                </div></br>
+
+            </div></br>
+
+
+            <div class="col-sm-4 col-sm-offset-4">
+                {{ form_widget(form.validate,{'attr': {'class': 'btn'}}) }}
+                {# Affichage des erreurs pour ce champ précis. #}
             </div>
         </div>
     </div>
+    {{ form_end(form) }}
+</div>
 {% endblock %}

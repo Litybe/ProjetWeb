@@ -5,16 +5,18 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-
 
 class ProfileType extends AbstractType
 {
     private $lastname;
+    private $isVisibleLastName;
     private $firstname;
+    private $isVisibleFirstName;
     private $email;
+    private $isVisibleEmail;
     private $cellphone;
+    private $isVisibleCellphone;
     private $password;
 
 
@@ -29,16 +31,28 @@ class ProfileType extends AbstractType
     {
         $builder
             ->add('LastName',    TextType::class,array(
-                'data' => $this->getLastname()
+                'data' => $this->getLastName()
+            ))
+            ->add('isVisibleLastName',    'checkbox',array(
+                'data' => $this->getIsVisibleLastName()
             ))
             ->add('FirstName',     TextType::class,array(
-                'data' => $this->getFirstname()
+                'data' => $this->getFirstName()
+            ))
+            ->add('isVisibleFirstName',    'checkbox',array(
+                'data' => $this->getIsVisibleFirstName()
             ))
             ->add('Email',    TextType::class,array(
                 'data' => $this->getEmail()
             ))
+            ->add('isVisibleEmail',    'checkbox',array(
+                'data' => $this->getIsVisibleEmail()
+            ))
             ->add('Cellphone',       TextType::class,array(
                 'data' => $this->getCellphone()
+            ))
+            ->add('isVisibleCellphone',    'checkbox',array(
+                'data' => $this->getIsVisibleCellphone()
             ))
             //->add('BirthDate',       BirthdayType::class)
             ->add('Password',      PasswordType::class,array(
@@ -47,6 +61,8 @@ class ProfileType extends AbstractType
             ->add('validate',   'submit')
         ;
     }
+
+
 
     /**
      * @param OptionsResolver $resolver
@@ -138,4 +154,83 @@ class ProfileType extends AbstractType
         $this->cellphone = $cellphone;
     }
 
+    /**
+     * @return array
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    /**
+     * @param array $options
+     */
+    public function setOptions($options)
+    {
+        $this->options = $options;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsVisibleLastName()
+    {
+        return $this->isVisibleLastName;
+    }
+
+    /**
+     * @param mixed $isVisibleLastName
+     */
+    public function setIsVisibleLastName($isVisibleLastName)
+    {
+        $this->isVisibleLastName = $isVisibleLastName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsVisibleFirstName()
+    {
+        return $this->isVisibleFirstName;
+    }
+
+    /**
+     * @param mixed $isVisibleFirstName
+     */
+    public function setIsVisibleFirstName($isVisibleFirstName)
+    {
+        $this->isVisibleFirstName = $isVisibleFirstName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsVisibleEmail()
+    {
+        return $this->isVisibleEmail;
+    }
+
+    /**
+     * @param mixed $isVisibleEmail
+     */
+    public function setIsVisibleEmail($isVisibleEmail)
+    {
+        $this->isVisibleEmail = $isVisibleEmail;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsVisibleCellphone()
+    {
+        return $this->isVisibleCellphone;
+    }
+
+    /**
+     * @param mixed $isVisibleCellphone
+     */
+    public function setIsVisibleCellphone($isVisibleCellphone)
+    {
+        $this->isVisibleCellphone = $isVisibleCellphone;
+    }
 }

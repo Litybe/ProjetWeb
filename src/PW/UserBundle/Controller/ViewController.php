@@ -9,7 +9,6 @@
 namespace PW\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 use PW\UserBundle\Entity\User;
 use PW\UserBundle\Form\ProfileType;
