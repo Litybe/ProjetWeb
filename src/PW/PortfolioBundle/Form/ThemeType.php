@@ -15,7 +15,7 @@ class ThemeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nameTheme',       'text')
+            ->add('ThemeName',       'text')
             ->add('validate',        'submit')
         ;
     }

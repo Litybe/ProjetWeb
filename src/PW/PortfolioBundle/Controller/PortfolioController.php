@@ -2,7 +2,6 @@
 
 namespace PW\PortfolioBundle\Controller;
 
-use PW\PortfolioBundle\Form\AddressType;
 use PW\PortfolioBundle\Form\TrainingType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,11 +32,11 @@ class PortfolioController extends Controller
 
     public function indexAction(Request $request)
     {
-        $address = new Training();
-        $form = $this->get('form.factory')->create(new TrainingType(),$address);
+        $training = new Training();
+        $form = $this->get('form.factory')->create(new TrainingType(),$training);
         if ($form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($address);
+            $em->persist($training);
             $em->flush();
 
             $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');

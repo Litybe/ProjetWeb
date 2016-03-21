@@ -6,6 +6,7 @@ pw_user_profile:
     pattern: /User/Profile
     defaults: { _controller: PWUserBundle:View:profile}
 
+
 pw_user_catalogue:
     pattern: /User/Catalogue
     defaults: { _controller: PWUserBundle:View:catalogue}

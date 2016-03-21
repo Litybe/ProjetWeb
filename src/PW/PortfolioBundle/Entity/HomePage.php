@@ -20,9 +20,9 @@ class HomePage
      */
     private $homePageDesciptive;
 
- /*   /**
+    /**
      * @ORM\OneToOne(targetEntity="PW\User\Entity\User", cascade={"persist"})
-     *
+     */
     private $user;
 
     /**
@@ -48,7 +48,7 @@ class HomePage
 
     /**
      * @return mixed
-     */
+     *
     public function getImage()
     {
         return $this->image;
@@ -56,11 +56,11 @@ class HomePage
 
     /**
      * @param mixed $image
-     */
+     *
     public function setImage(Image $image)
     {
         $this->image = $image;
-    }
+    }*/
 
     /**
      * Get id

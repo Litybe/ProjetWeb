@@ -13,9 +13,16 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 use PW\UserBundle\Entity\User;
 use PW\UserBundle\Form\ProfileType;
+use PW\PDO\QueryExecution;
+
 
 class ViewController extends controller
 {
+    private $pdo;
+    public function __construct()
+    {
+        $this->pdo = new QueryExecution();
+    }
 
     public function indexAction(Request $request)
     {
@@ -25,14 +32,25 @@ class ViewController extends controller
     public function profileAction(Request $request)
     {
         $user = new User();
+
         $form = $this->get('form.factory')->create(new ProfileType(), $user);
 
         if ($form->handleRequest($request)->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
+            $param =array(
+                $user->getLastName(),
+                $user->getFirstName(),
+                $user->getEmail(),
+                $user->getCellphone(),
+                $user->getUsername(),
+                $user->getPassword(),
+                'a:1:{i:0;s:9:"ROLE_USER";}'
+            );
+            $em = $this->getDoctrine()->getManager()
+                                      ->getConnection();
 
-            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+            $query = $em->prepare($this->pdo->getProcedureString('registering',$param));
+            $query->execute($param);
+
 
             return $this->redirect($this->generateUrl('pw_user_profile'));
         }

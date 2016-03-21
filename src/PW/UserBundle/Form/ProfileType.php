@@ -20,6 +20,7 @@ class ProfileType extends AbstractType
             ->add('Cellphone',       TextType::class)
             //->add('BirthDate',       BirthdayType::class)
             ->add('Password',      PasswordType::class)
+            ->add('Username',       TextType::class)
             ->add('validate',   'submit')
         ;
     }
