@@ -47,7 +47,13 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href={{ path('pw_user_connexion') }}>PSEUDO</a></li>
+                    <li><a href={% if app.user == null %}
+                           {{ path('pw_user_connexion') }}
+                        {% else %}{{ path('pw_user_profile') }}{% endif %}
+                    </li><li>
+                            {% if app.user == null %}
+                                PSEUDO
+                            {% else %}{{ app.user.username }}{% endif %}</a></li>
                 </ul>
             </div>
         </div>

@@ -96,9 +96,13 @@ class SecurityController extends Controller
            return $this->render('PWUserBundle:connexion:connexion.html.twig', array(
                'last_username' => $authenticationUtils->getLastUsername(),
                'error'         => $authenticationUtils->getLastAuthenticationError(),
-           ));    }
+           ));
+       }
     public function indexAction()
     {
+
+
+
         return $this->render('PWUserBundle:profile:profile.html.twig');
     }
 
@@ -201,5 +205,12 @@ class SecurityController extends Controller
             'formGroup' => $formGroup->createView(),
             'listSkills' => $listSkills
         ));
+    }
+
+    public function portfolioAction()
+    {
+        /*$User = array('LastName'=> 'Bobby', 'FirstName'=>'Dimitri','Email'=> 'Libecorne@gmail.com', 'cellNumber'=> '0670936118');
+        $SkillGroup= array('');
+        $ActionSkill= array('');*/
     }
 }

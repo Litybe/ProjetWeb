@@ -16,7 +16,8 @@ use PW\UserBundle\Form\ProfileType;
 
 class ViewController extends controller
 {
-    public function indexAction()
+
+    public function indexAction(Request $request)
     {
         return $this->render('PWUserBundle:index.html.twig');
     }
