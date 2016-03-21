@@ -13,7 +13,7 @@
                 <h3>Informations personnelles</h3>
                 <p>Modifier vos informations personnelles:</p>
             </div>
-            <div class="col-sm-offset-7"><p>Afficher</p></div>
+            <div class="col-sm-offset-9"><p>Afficher</p></div>
             <div class="form-top-right">
                 <i class="fa fa-key"></i>
             </div>
@@ -21,7 +21,7 @@
         <div class="form-bottom">
             <div class="form-group">
                 {{ form_label(form.LastName, "Nom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     {{ form_widget(form.LastName, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div>
@@ -30,8 +30,8 @@
             </div>
 
             <div class="form-group">
-                {{ form_label(form.FirstName, "Prénom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-                <div class="col-sm-4">
+                {{ form_label(form.FirstName, "Prénom", {'label_attr': {'class': 'col-sm-3 control-label','placeholder': 'First Name...'}}) }}
+                <div class="col-sm-6">
                     {{ form_widget(form.FirstName, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div>
@@ -41,7 +41,7 @@
             <div class="form-group">
 
                 {{ form_label(form.Email, "Email", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     {{ form_widget(form.Email, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div>
@@ -51,14 +51,29 @@
             <div class="form-group">
 
                 {{ form_label(form.Cellphone, "Téléphone", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     {{ form_widget(form.Cellphone, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div>
                     {{ form_widget(form.isVisibleCellphone, {'attr': {'class': 'checkbox'}}) }}
                 </div></br>
             </div>
+            <div class="form-group">
 
+                {{ form_label(form.UserAddress, "Adresse", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-3">
+                    {{ form_widget(form.UserAddress, {'attr': {'class': 'form-control','placeholder': 'Address...'}}) }}
+                </div>
+                <div class="col-sm-1">
+                    {{ form_widget(form.UserZipCode, {'attr': {'class': 'form-control','placeholder': 'ZipCode...'}}) }}
+                </div>
+                <div class="col-sm-2">
+                    {{ form_widget(form.UserCity, {'attr': {'class': 'form-control','placeholder': 'City...'}}) }}
+                </div>
+                <div>
+                    {{ form_widget(form.isVisibleAddress, {'attr': {'class': 'checkbox'}}) }}
+                </div></br>
+            </div>
             <div class="form-group">
 
                 {{ form_label(form.Password, "Mot de passe", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}

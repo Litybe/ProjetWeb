@@ -37,41 +37,56 @@ class ProfileType extends AbstractType
     {
         $builder
             ->add('LastName',    TextType::class,array(
-                'data' => $this->getLastName()
+                'data' => $this->getLastName(),
+                'required' => false
             ))
             ->add('isVisibleLastName',    'checkbox',array(
-                'data' => $this->getIsVisibleLastName()
+                'data' => $this->getIsVisibleLastName(),
+                'required' => false
             ))
             ->add('FirstName',     TextType::class,array(
-                'data' => $this->getFirstName()
+                'data' => $this->getFirstName(),
+                'required' => false
             ))
             ->add('isVisibleFirstName',    'checkbox',array(
-                'data' => $this->getIsVisibleFirstName()
+                'data' => $this->getIsVisibleFirstName(),
+                'required' => false
             ))
             ->add('Email',    TextType::class,array(
-                'data' => $this->getEmail()
+                'data' => $this->getEmail(),
+                'required' => false
             ))
             ->add('isVisibleEmail',    'checkbox',array(
-                'data' => $this->getIsVisibleEmail()
+                'data' => $this->getIsVisibleEmail(),
+                'required' => false
             ))
             ->add('Cellphone',       TextType::class,array(
-                'data' => $this->getCellphone()
+                'data' => $this->getCellphone(),
+                'required' => false
             ))
             ->add('isVisibleCellphone',    'checkbox',array(
-                'data' => $this->getIsVisibleCellphone()
+                'data' => $this->getIsVisibleCellphone(),
+                'required' => false
             ))
+
             ->add('UserAddress',    TextType::class,array(
-                'data' => $this->getAddress()
+                'data' => $this->getAddress(),
+                'required' => false
             ))
             ->add('isVisibleAddress',    'checkbox',array(
-                'data' => $this->getIsVisibleAddress()
+                'data' => $this->getIsVisibleAddress(),
+                'required' => false
             ))
             ->add('UserZipCode',    TextType::class,array(
-                'data' => $this->getZipcode()
+                'data' => $this->getZipcode(),
+                'required' => false
             ))
             ->add('UserCity',    TextType::class,array(
-                'data' => $this->getCity()
+                'data' => $this->getCity(),
+                'required' => false
             ))
+
+
             //->add('BirthDate',       BirthdayType::class)
             ->add('Password',      PasswordType::class,array(
                 'data' => $this->getPassword()
