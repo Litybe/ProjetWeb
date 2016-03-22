@@ -10,22 +10,139 @@
 
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>Information</h1>
-                <p>Ajouter des bon bails qui sont des formulaires </p>
+
+<div class="container">
+    {{ form_start(form, {'attr': {'class': 'form-box'}}) }}
+    <div class="form-box well">
+        <div class="form-top">
+            <div class="form-top-left">
+                <h3>Informations personnelles</h3>
+                <p>Modifier vos informations personnelles:</p>
             </div>
-            {{ form(form) }}
-            {{ form(formProject) }}
-            {{ form(formExperience) }}
-            <div class="col-lg-12">
-                <h1>WOUALALAL</h1>
-                <p>Tu trouveras tout le nécessaire pour réaliser un portfolio dans notre tuto</p>
-                <p>Bien mes negros</p>
+            <div class="form-top-right">
+                <i class="fa fa-key"></i>
             </div>
         </div>
+        <div class="form-bottom thumbnail">
+            </br><div class="form-group">
+                {{ form_label(form.trainingName, "Compétence", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-6">
+                    {{ form_widget(form.trainingName, {'attr': {'class': 'form-control'}}) }}
+                </div></br></br>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.trainingDiploma, "Diplôme", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-6">
+                    {{ form_widget(form.trainingDiploma, {'attr': {'class': 'form-control'}}) }}
+                </div></br></br>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.trainingDescriptive, "Description", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-6">
+                    {{ form_widget(form.trainingDescriptive, {'attr': {'class': 'form-control'}}) }}
+                </div></br></br>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.trainingDate, "Periode de la formation", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-6">
+                    {{ form_widget(form.trainingDate, {'attr': {'class': 'form-control'}}) }}
+                </div></br></br>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.trainingAddress, "Lieu de la formation", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-6">
+                    {{ form_widget(form.trainingAddress, {'attr': {'class': 'form-control'}}) }}
+                </div></br></br>
+            </div>
+            <div class="col-sm-4 col-sm-offset-4">
+                {{ form_widget(form.validate,{'attr': {'class': 'btn'}}) }}
+                {# Affichage des erreurs pour ce champ précis. #}
+            </div></br></br>
+        </div>
     </div>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+
+
+    {{ form_start(formExperience, {'attr': {'class': 'form-box'}}) }}
+    <div class="form-box well">
+        <div class="form-top">
+            <div class="form-top-left">
+                <h3>Expérience</h3>
+                <p>Modifier vos expériences professionnelles:</p>
+            </div>
+            <div class="form-top-right">
+                <i class="fa fa-key"></i>
+            </div>
+        </div>
+        <div class="form-bottom thumbnail">
+            </br><div class="form-group">
+                {{ form_label(formExperience.job, "Poste", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-6">
+                    {{ form_widget(formExperience.job, {'attr': {'class': 'form-control'}}) }}
+                </div></br></br>
+            </div>
+            <div class="form-group">
+                {{ form_label(formExperience.firm, "Entreprise", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-6">
+                    {{ form_widget(formExperience.firm, {'attr': {'class': 'form-control'}}) }}
+                </div></br></br>
+            </div>
+            <div class="form-group">
+                {{ form_label(formExperience.mission, "Mission", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-6">
+                    {{ form_widget(formExperience.mission, {'attr': {'class': 'form-control'}}) }}
+                </div></br></br>
+            </div>
+            <div class="col-sm-4 col-sm-offset-4">
+                {{ form_widget(formExperience.validate,{'attr': {'class': 'btn'}}) }}
+                {# Affichage des erreurs pour ce champ précis. #}
+            </div></br></br>
+        </div>
+    </div>
+    {{ form_rest(formExperience) }}
+    {{ form_end(formExperience) }}
+
+    {{ form_start(formProject, {'attr': {'class': 'form-box'}}) }}
+    <div class="form-box well">
+        <div class="form-top">
+            <div class="form-top-left">
+                <h3>Projet</h3>
+                <p>Modifier vos projets réalisé:</p>
+            </div>
+            <div class="form-top-right">
+                <i class="fa fa-key"></i>
+            </div>
+        </div>
+        <div class="form-bottom thumbnail">
+            </br><div class="form-group">
+                {{ form_label(formProject.ProjectName, "Nom du Projet", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-6">
+                    {{ form_widget(formProject.ProjectName, {'attr': {'class': 'form-control'}}) }}
+                </div></br></br>
+            </div>
+            <div class="form-group">
+                {{ form_label(formProject.ProjectDescriptive, "Description du projet", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-6">
+                    {{ form_widget(formProject.ProjectDescriptive, {'attr': {'class': 'form-control'}}) }}
+                </div></br></br>
+            </div>
+            <div class="form-group">
+                {{ form_label(formProject.ProjectLink, "Lien de téléchargement", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-6">
+                    {{ form_widget(formProject.ProjectLink, {'attr': {'class': 'form-control'}}) }}
+                </div></br></br>
+            </div>
+            <div class="col-sm-4 col-sm-offset-4">
+                {{ form_widget(formProject.validate,{'attr': {'class': 'btn'}}) }}
+                {# Affichage des erreurs pour ce champ précis. #}
+            </div></br></br>
+        </div>
+    </div>
+    {{ form_rest(formProject) }}
+    {{ form_end(formProject) }}
+
+</div>
 {% endblock %}
 
 

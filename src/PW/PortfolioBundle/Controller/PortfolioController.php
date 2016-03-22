@@ -71,4 +71,9 @@ class PortfolioController extends Controller
     {
         return $this->render('PWPortfolioBundle:Ergonomie:ergonomie.html.twig');
     }
+
+    public function apercuAction()
+    {
+        return $this->render('PWPortfolioBundle:EPortfolio:Apercu.html.twig');
+    }
 }

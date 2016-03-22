@@ -14,64 +14,7 @@
     </head>
 
     <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href={{ path('pw_user_homepage') }}>Accueil</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href={{ path('pw_user_catalogue') }}>Catalogue</a></li>
-                    <li><a href={{ path('pw_user_connexion') }}>Connexion</a></li>
-                    <li><a href={% if app.user == null %}
-                        {{ path('pw_user_connexion') }}
-                                {% else %}{{ path('pw_user_profile') }}{% endif %}>Profile</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon portfolio <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href={{ path('pw_portfolio_home') }}>Home</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Edit</li>
-                            <li><a href={{ path('pw_portfolio_introduction') }}>Introduction</a></li>
-                            <li><a href={{ path('pw_portfolio_information') }}>Information</a></li>
-                            <li><a href={{ path('pw_portfolio_ergonomy') }}>Ergonomie</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#Apercu">Aperçu</a></li>
-                            <li><a href={{ path('pw_user_test') }}>Test</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-
-                <ul class="nav navbar-nav navbar-right">
-
-                <a class="btn btn-default navbar-btn" href=
-                {% if app.user == null %}
-                               {{ path('pw_user_connexion') }}
-                        {% else %}{{ path('logout') }}{% endif %}>
-                    {% if app.user == null %}
-                        Connexion
-                    {% else %}Deconnexion{% endif %}
-                </a>
-
-
-                <li><a href={% if app.user == null %}
-                        {{ path('pw_user_connexion') }}
-                    {% else %}{{ path('pw_user_profile') }}{% endif %}
-                       </li><li>
-                    {% if app.user == null %}
-                    PSEUDO
-                    {% else %}{{ app.user.username }}{% endif %}</a></li>
-            </ul>
-        </div>
-        </div>
-    </nav><br /><br />
+    {% include 'navbarBase.html.twig' %}
 
     <div class="jumbotron">
         <div class="container">
