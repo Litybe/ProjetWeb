@@ -39,6 +39,8 @@ class PortfolioController extends Controller
 
         return $this->render('PWPortfolioBundle:Home:editHome.html.twig');
     }
+
+
     public function informationAction(Request $request)
     {
         $training = new Training();
@@ -76,4 +78,23 @@ class PortfolioController extends Controller
     {
         return $this->render('PWPortfolioBundle:EPortfolio:Apercu.html.twig');
     }
+
+
+
+    public function competenceAction()
+    {
+
+        return $this->render('PWPortfolioBundle:Information:Competence.html.twig');
+    }
+    public function experienceAction()
+    {
+
+        return $this->render('PWPortfolioBundle:Information:Experience.html.twig');
+    }
+    public function projetAction()
+    {
+
+        return $this->render('PWPortfolioBundle:Information:Projet.html.twig');
+    }
+
 }

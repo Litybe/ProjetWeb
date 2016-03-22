@@ -12,6 +12,14 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href={{ path('pw_portfolio_introduction') }}>Introduction</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Information <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href={{ path('pw_portfolio_competence') }}>Compétence</a></li>
+                        <li><a href={{ path('pw_portfolio_experience') }}>Expérience</a></li>
+                        <li><a href={{ path('pw_portfolio_projet') }}>Projet</a></li>
+                    </ul>
+                </li>
                 <li><a href={{ path('pw_portfolio_information') }}>Information</a></li>
                 <li><a href={{ path('pw_portfolio_ergonomy') }}>Ergonomie</a></li>
                 <li><a href=#Apercu>Aperçu</a></li>

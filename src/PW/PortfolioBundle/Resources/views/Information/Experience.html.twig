@@ -1,0 +1,57 @@
+{% extends'base.html.twig' %}
+
+
+
+{% block title %}Edit Information - {{ parent() }}{% endblock %}
+{% block PageName %}Edit Information{% endblock %}
+{% block PageDescription %}
+    {{ include("PWPortfolioBundle::editNavbar.html.twig") }}
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="container">
+        {{ form_start(formExperience, {'attr': {'class': 'form-box'}}) }}
+        <div class="form-box well">
+            <div class="form-top">
+                <div class="form-top-left">
+                    <h3>Expérience</h3>
+                    <p>Modifier vos expériences professionnelles:</p>
+                </div>
+                <div class="form-top-right">
+                    <i class="fa fa-key"></i>
+                </div>
+            </div>
+            <div class="form-bottom thumbnail">
+                </br><div class="form-group">
+                    {{ form_label(formExperience.job, "Poste", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(formExperience.job, {'attr': {'class': 'form-control'}}) }}
+                    </div></br></br>
+                </div>
+                <div class="form-group">
+                    {{ form_label(formExperience.firm, "Entreprise", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(formExperience.firm, {'attr': {'class': 'form-control'}}) }}
+                    </div></br></br>
+                </div>
+                <div class="form-group">
+                    {{ form_label(formExperience.mission, "Mission", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(formExperience.mission, {'attr': {'class': 'form-control'}}) }}
+                    </div></br></br>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4">
+                    {{ form_widget(formExperience.validate,{'attr': {'class': 'btn'}}) }}
+                    {# Affichage des erreurs pour ce champ précis. #}
+                </div></br></br>
+            </div>
+        </div>
+        {{ form_rest(formExperience) }}
+        {{ form_end(formExperience) }}
+
+    </div>
+{% endblock %}
+
+

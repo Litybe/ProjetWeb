@@ -21,3 +21,16 @@ pw_portfolio_ergonomy:
 pw_portfolio_apercu:
     path:    /portfolio/apercu/{app.user}
     defaults: { _controller: PWPortfolioBundle:Portfolio:apercu }
+
+pw_portfolio_competence:
+    path:    /portfolio/competence
+    defaults: { _controller: PWPortfolioBundle:Portfolio:competence }
+
+pw_portfolio_experience:
+    path:    /portfolio/experience
+    defaults: { _controller: PWPortfolioBundle:Portfolio:experience }
+
+pw_portfolio_projet:
+    path:    /portfolio/projet
+
+    defaults: { _controller: PWPortfolioBundle:Portfolio:projet }

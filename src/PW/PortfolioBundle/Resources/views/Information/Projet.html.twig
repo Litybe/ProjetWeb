@@ -1,0 +1,57 @@
+{% extends'base.html.twig' %}
+
+
+
+{% block title %}Edit Information - {{ parent() }}{% endblock %}
+{% block PageName %}Edit Information{% endblock %}
+{% block PageDescription %}
+    {{ include("PWPortfolioBundle::editNavbar.html.twig") }}
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="container">
+        {{ form_start(formProject, {'attr': {'class': 'form-box'}}) }}
+        <div class="form-box well">
+            <div class="form-top">
+                <div class="form-top-left">
+                    <h3>Projet</h3>
+                    <p>Modifier vos projets réalisé:</p>
+                </div>
+                <div class="form-top-right">
+                    <i class="fa fa-key"></i>
+                </div>
+            </div>
+            <div class="form-bottom thumbnail">
+                </br><div class="form-group">
+                    {{ form_label(formProject.ProjectName, "Nom du Projet", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(formProject.ProjectName, {'attr': {'class': 'form-control'}}) }}
+                    </div></br></br>
+                </div>
+                <div class="form-group">
+                    {{ form_label(formProject.ProjectDescriptive, "Description du projet", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(formProject.ProjectDescriptive, {'attr': {'class': 'form-control'}}) }}
+                    </div></br></br>
+                </div>
+                <div class="form-group">
+                    {{ form_label(formProject.ProjectLink, "Lien de téléchargement", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(formProject.ProjectLink, {'attr': {'class': 'form-control'}}) }}
+                    </div></br></br>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4">
+                    {{ form_widget(formProject.validate,{'attr': {'class': 'btn'}}) }}
+                    {# Affichage des erreurs pour ce champ précis. #}
+                </div></br></br>
+            </div>
+        </div>
+        {{ form_rest(formProject) }}
+        {{ form_end(formProject) }}
+
+    </div>
+{% endblock %}
+
+

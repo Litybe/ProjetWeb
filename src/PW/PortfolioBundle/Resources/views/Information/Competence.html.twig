@@ -1,0 +1,69 @@
+{% extends'base.html.twig' %}
+
+
+
+{% block title %}Edit Information - {{ parent() }}{% endblock %}
+{% block PageName %}Edit Information{% endblock %}
+{% block PageDescription %}
+    {{ include("PWPortfolioBundle::editNavbar.html.twig") }}
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="container">
+        {{ form_start(form, {'attr': {'class': 'form-box'}}) }}
+        <div class="form-box well">
+            <div class="form-top">
+                <div class="form-top-left">
+                    <h3>Compétence</h3>
+                    <p>Modifier vos informations compétences:</p>
+                </div>
+                <div class="form-top-right">
+                    <i class="fa fa-key"></i>
+                </div>
+            </div>
+            <div class="form-bottom thumbnail">
+                </br><div class="form-group">
+                    {{ form_label(form.trainingName, "Compétence", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.trainingName, {'attr': {'class': 'form-control'}}) }}
+                    </div></br></br>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.trainingDiploma, "Diplôme", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.trainingDiploma, {'attr': {'class': 'form-control'}}) }}
+                    </div></br></br>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.trainingDescriptive, "Description", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.trainingDescriptive, {'attr': {'class': 'form-control'}}) }}
+                    </div></br></br>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.trainingDate, "Periode de la formation", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.trainingDate, {'attr': {'class': 'form-control'}}) }}
+                    </div></br></br>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.trainingAddress, "Lieu de la formation", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.trainingAddress, {'attr': {'class': 'form-control'}}) }}
+                    </div></br></br>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4">
+                    {{ form_widget(form.validate,{'attr': {'class': 'btn'}}) }}
+                    {# Affichage des erreurs pour ce champ précis. #}
+                </div></br></br>
+            </div>
+        </div>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+
+    </div>
+{% endblock %}
+
+
