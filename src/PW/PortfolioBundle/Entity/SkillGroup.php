@@ -29,6 +29,10 @@ class SkillGroup
      */
     private $skillGroupName;
 
+    /**
+     * SkillGroup constructor.
+     */
+    private $skill;
 
 
     public function __construct()

@@ -2,6 +2,7 @@
 
 namespace PW\PortfolioBundle\Form;
 
+use PW\PortfolioBundle\Entity\Skill;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,7 +17,12 @@ class SkillGroupType extends AbstractType
     {
         $builder
             ->add('skillGroupName', 'text')
-            ->add('validate',       'submit')
+            ->add('categories', 'collection', array(
+                'type'         => new SkillType(),
+                'allow_add'    => true,
+                'allow_delete' => true
+            ))
+            ->add('Ajouter',       'submit')
         ;
     }
     

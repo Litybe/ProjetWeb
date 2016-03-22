@@ -17,4 +17,4 @@ pw_user_connexion:
 
 pw_user_test:
     pattern: /User/TESTMONNEGRO
-    defaults: {_controller: PWUserBundle:View:test}
+    defaults: {_controller: PWUserBundle:View:add}

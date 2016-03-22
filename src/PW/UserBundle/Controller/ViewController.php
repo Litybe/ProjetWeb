@@ -106,40 +106,50 @@ class ViewController extends controller
         ));
     }
 
-    public function testAction(Request $request)
+    public function addAction(Request $request)
     {
+
+
+           $listSkills = array(
+               array('id' => 2, 'nameSkill' => 'PHP', 'skillMastery' => '1'),
+               array('id' => 3, 'nameSkill' => 'Javascript', 'skillMastery' => '2'),
+               array('id' => 4, 'nameSkill' => 'Jquery', 'skillMastery' => '3'),
+               array('id' => 5, 'nameSkill' => 'JB', 'skillMastery' => '5'),
+               array('id' => 6, 'nameSkill' => 'Word', 'skillMastery' => '4'),
+               array('id' => 7, 'nameSkill' => 'Menuiserie', 'skillMastery' => '1'),
+               array('id' => 8, 'nameSkill' => 'Lancé de bigornos', 'skillMastery' => '3'),
+               array('id' => 9, 'nameSkill' => 'Trotinette', 'skillMastery' => '3'),
+               array('id' => 9, 'nameSkill' => 'Equitation sur licornes', 'skillMastery' => '5')
+           );
+
+       /* $em = $this->getDoctrine()->getManager()->getConnection();
+        $query = $em->prepare($this->pdo->getProcedureString('skill_Select', null));
+
+        $skillsList = array($query->execute()); */
+
+        $param = array("skill");
+        $em = $this->getDoctrine()->getManager()->getConnection();
+        $query = $em->prepare($this->pdo->getProcedureString('select_Skill', $param));
+        $query->execute($param);
+
+        $skills = $this->getDoctrine()
+            ->getRepository('PWPortfolioBundle:Skill')
+            ->findAll();
+
+        if (!$skills) {
+            throw $this->createNotFoundException(
+                'Aucune compétences trouvées '
+            );
+        }
+
         $skill = new  Skill();
-        $skillGroup = new SkillGroup();
-        $category = new SkillType();
         $form = $this->createForm(SkillType::class, $skill);
-        $formGroup = $this->createForm(SkillGroupType::class, $skillGroup);
-
-        $em = $this->getDoctrine()->getManager()
-            ->getConnection();
-
-        $listSkills = array(
-            array('id' => 2, 'nameSkill' => 'PHP', 'skillMastery' => '1'),
-            array('id' => 3, 'nameSkill' => 'Javascript', 'skillMastery' => '2'),
-            array('id' => 4, 'nameSkill' => 'Jquery', 'skillMastery' => '3'),
-            array('id' => 5, 'nameSkill' => 'JB', 'skillMastery' => '5'),
-            array('id' => 6, 'nameSkill' => 'Word', 'skillMastery' => '4'),
-            array('id' => 7, 'nameSkill' => 'Menuiserie', 'skillMastery' => '1'),
-            array('id' => 8, 'nameSkill' => 'Lancé de bigornos', 'skillMastery' => '3'),
-            array('id' => 9, 'nameSkill' => 'Trotinette', 'skillMastery' => '3'),
-            array('id' => 9, 'nameSkill' => 'Equitation sur licornes', 'skillMastery' => '5')
-        );
-
-     /*       //Récupération des groupes de skills
-        $query = $em->prepare($this->pdo->getProcedureString('getSkillGroup', null));
-        $query->execute();
-        $result=$query->fetch();
-        $category->setSkillGroupName($result['SkillGroup_Name']); */
 
         if ($form->handleRequest($request)->isValid()) {
 
             $param = array(
-                $skill->getSkillName(),
-                $skill->getSkillMastery()
+                $skills->getSkillName(),
+                $skills->getSkillMastery(),
             );
             $em = $this->getDoctrine()->getManager()->getConnection();
             $query = $em->prepare($this->pdo->getProcedureString('addSkill', $param));
@@ -148,20 +158,12 @@ class ViewController extends controller
             return $this->redirectToRoute('pw_user_test');
         }
 
-        if ($formGroup->handleRequest($request)->isValid()) {
-
-            $param = array($skillGroup->getSkillGroupName());
-            $em = $this->getDoctrine()->getManager()->getConnection();
-            $query = $em->prepare($this->pdo->getProcedureString('addSkillGroup', $param));
-            $query->execute($param);
-
-            return $this->redirectToRoute('pw_user_test');
-        }
-
         return $this->render('PWUserBundle:test:test.html.twig', array(
             'form' => $form->createView(),
-            'formGroup' => $formGroup->createView(),
-            'listSkills' => $listSkills
+            'listSkills' => $listSkills,
+            'skills' => $skills
         ));
+
     }
+
 }

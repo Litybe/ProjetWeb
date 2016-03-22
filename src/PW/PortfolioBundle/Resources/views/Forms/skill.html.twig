@@ -26,15 +26,6 @@
             </div>
         </div>
 
-        <div class="form-group">
-            {{ form_label(form.skillGroup, "Liste des catégories", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-            {{ form_errors(form.skillGroup) }}
-            <div class="col-sm-4">
-                {{ form_widget(form.skillGroup, {'attr': {'class': 'form-control'}}) }}
-            </div>
-        </div>
-
-
 
 
 {# Génération du label + error + widget pour un champ #}
@@ -43,7 +34,7 @@
         {{ form_row(form.skillMastery) }}
 
         {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-        {{ form_widget(form.validate, {'attr': {'class': 'col-sm-offset-3 btn btn-primary'}}) }}
+        {{ form_widget(form.Ajouter, {'attr': {'class': 'col-sm-offset-3 btn btn-primary'}}) }}
 
         {# Génération automatique des champs pas encore écrits.
             Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
@@ -53,61 +44,45 @@
         {# Fermeture de la balise <form> du formulaire HTML #}
         {{ form_end(form) }}
     </div>
-</div>
-
-
-
-    <div class="container">
-        <h3>Ajouter une catégorie</h3>
-        <div class="well well-lg">
-            {{ form_start(formGroup, {'attr': {'class': 'form-horizontal'}}) }}
-            {# Les erreurs générales du formulaire. #}
-            {{ form_errors(formGroup) }}
-
-
-            {# Idem pour un autre champ. #}
-            <div class="form-group">
-                {{ form_label(formGroup.skillGroupName, "Nom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-                {{ form_errors(formGroup.skillGroupName) }}
-                <div class="col-sm-4">
-                    {{ form_widget(formGroup.skillGroupName, {'attr': {'class': 'form-control'}}) }}
-                </div>
-            </div>
-
-            {# Génération du label + error + widget pour un champ #}
-
-            {{ form_row(formGroup.skillGroupName) }}
-            {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-            {{ form_widget(formGroup.validate, {'attr': {'class': 'col-sm-offset-3 btn btn-primary'}}) }}
-
-            {# Génération automatique des champs pas encore écrits.
-                Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
-               et tous les champs cachés (type « hidden »). #}
-            {{ form_rest(formGroup) }}
-
-            {# Fermeture de la balise <form> du formulaire HTML #}
-            {{ form_end(formGroup) }}
-        </div>
-
         {# Affichage des compétences #}
-        <ul>
-            {% for skill in listSkills %}
-                <li class="col-sm-5">
-                    <div >{{ skill.nameSkill }}</div>
-                    {% for mastery in 1..skill.skillMastery %}
-                        <span class="glyphicon glyphicon-ok-sign" style="font-size: 1.5em; color:#0b7e00"></span>
+    <ul>
+        {% for skill in listSkills %}
+            <li class="col-sm-5">
+                <div >{{ skill.nameSkill }}</div>
+                {% for mastery in 1..skill.skillMastery %}
+                    <span class="glyphicon glyphicon-ok-sign" style="font-size: 1.5em; color:#0b7e00"></span>
+                {% endfor %}
+                {% if skill.skillMastery < 5 %}
+                    {% for mastery in 1..5-skill.skillMastery %}
+                        <span class="glyphicon glyphicon-ok-circle" style="font-size: 1.5em; color:#0b7e00"></span>
                     {% endfor %}
-                    {% if skill.skillMastery < 5 %}
-                        {% for mastery in 1..5-skill.skillMastery %}
-                            <span class="glyphicon glyphicon-ok-circle" style="font-size: 1.5em; color:#0b7e00"></span>
-                        {% endfor %}
-                    {% endif %}
+                {% endif %}
 
-                </li>
-            {% else %}
-                <li>Pas (encore !) de compétences</li>
-            {% endfor %}
-        </ul>
-    </div>
+            </li>
+        {% else %}
+            <li>Pas (encore !) de compétences</li>
+        {% endfor %}
 
+        $skillsList
+    </ul>
+
+    <ul>
+        {% for skill in skills %}
+            <li class="col-sm-5">
+                <div >{{ skill.skillName }}</div>
+                {% for mastery in 1..skill.skillMastery %}
+                    <span class="glyphicon glyphicon-ok-sign" style="font-size: 1.5em; color:#0b7e00"></span>
+                {% endfor %}
+                {% if skills.skillMastery < 5 %}
+                    {% for mastery in 1..5-skill.skillMastery %}
+                        <span class="glyphicon glyphicon-ok-circle" style="font-size: 1.5em; color:#0b7e00"></span>
+                    {% endfor %}
+                {% endif %}
+
+            </li>
+        {% else %}
+            <li>Pas (encore !) de compétences</li>
+        {% endfor %}
+
+    </ul>
 </div>

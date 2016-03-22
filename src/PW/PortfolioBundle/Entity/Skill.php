@@ -2,7 +2,6 @@
 
 namespace PW\PortfolioBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,55 +29,14 @@ class Skill
     private $skillName;
 
     /**
-     * @var string
+     * @var integer
      */
     private $skillMastery;
 
     /**
-     * @ORM\ManyToMany(targetEntity="PW\PortfolioBundle\Entity\SkillGroup", cascade={"persist"})
+     * @var integer
      */
-    private $skillGroup;
-
-
-    public function __construct()
-    {
-        $this->skillGroup = new ArrayCollection();
-    }
-
-    public function addCategory(SkillGroup $skillGroup)
-    {
-        // Ici, on utilise l'ArrayCollection vraiment comme un tableau
-        $this->skillGroup[] = $skillGroup;
-        return $this;
-    }
-
-    public function removeCategory(SkillGroup $skillGroup)
-    {
-        // Ici on utilise une méthode de l'ArrayCollection, pour supprimer la catégorie en argument
-        $this->skillGroup->removeElement($skillGroup);
-    }
-
-    // Notez le pluriel, on récupère une liste de catégories ici !
-    public function getCategories()
-    {
-        return $this->skillGroup;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSkillGroup()
-    {
-        return $this->skillGroup;
-    }
-
-    /**
-     * @param mixed $skillGroup
-     */
-    public function setSkillGroup($skillGroup)
-    {
-        $this->skillGroup = $skillGroup;
-    }
+    private $idOrder;
 
     /**
      * Get id
@@ -134,6 +92,23 @@ class Skill
     public function getSkillMastery()
     {
         return $this->skillMastery;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getIdOrder()
+    {
+        return $this->idOrder;
+    }
+
+    /**
+     * @param int $idOrder
+     */
+    public function setIdOrder($idOrder)
+    {
+        $this->idOrder = $idOrder;
     }
 
 
