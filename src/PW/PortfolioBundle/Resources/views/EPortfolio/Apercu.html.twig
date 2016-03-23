@@ -1,1 +1,14 @@
-{% extends 'PWPortfolioBundle:GeneralThemes:baseApercu.html.twig' %}
+{% extends'base.html.twig' %}
+
+
+
+{% block title %}Edit Information - {{ parent() }}{% endblock %}
+{% block PageName %}Edit Information{% endblock %}
+{% block PageDescription %}
+    {{ include("PWPortfolioBundle::editNavbar.html.twig") }}
+{% endblock %}
+
+{% block body %}
+    {{ resultProject }}
+
+{% endblock %}

@@ -40,9 +40,10 @@ class ViewController extends controller
         $em = $this->getDoctrine()->getManager()
                                  ->getConnection();
         $id=array($userId);
-        $query = $em->prepare($this->pdo->getProcedureString('profile',$id));
+        $query = $em->prepare($this->pdo->getProcedureString('PS_SELECT_PROFILE',$id));
         $query->execute($id);
         $result=$query->fetch();
+
         $profile->setLastname($result['LastName']);
         $profile->setFirstname($result['FirstName']);
         $profile->setEmail($result['email']);
@@ -55,6 +56,7 @@ class ViewController extends controller
         $profile->setAddress($result['UserAddress']);
         $profile->setZipcode($result['UserZipCode']);
         $profile->setCity($result['UserCity']);
+
         $form = $this->get('form.factory')->create($profile, $user);
 
 

@@ -20,10 +20,10 @@ class TrainingType extends AbstractType
             ->add('trainingDescriptive',    'text')
             ->add('trainingDate',                   'text')
             ->add('trainingAddress',        'text')
-            ->add('validate',               'submit')
             ->add('trainingAddress',    'text')
             ->add('trainingZipCode',    'text')
             ->add('trainingCity',    'text')
+            ->add('validate',               'submit')
         ;
     }
     
