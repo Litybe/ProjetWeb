@@ -31,10 +31,6 @@ class SecurityController extends Controller
         if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             return $this->redirectToRoute('pw_user_homepage');
         }
-
-        // Le service authentication_utils permet de récupérer le nom d'utilisateur
-        // et l'erreur dans le cas où le formulaire a déjà été soumis mais était invalide
-        // (mauvais mot de passe par exemple)
         $authenticationUtils = $this->get('security.authentication_utils');
 
         return $this->render('PWUserBundle:connexion:connexion.html.twig', array(
@@ -54,7 +50,7 @@ class SecurityController extends Controller
         );
         $em = $this->getDoctrine()->getManager()
                                   ->getConnection();
-        $query = $em->prepare($this->pdo->getProcedureString('profileupdate',$param));
+        $query = $em->prepare($this->pdo->getProcedureString('PS_INSERT_REGISTER',$param));
         $query->execute($param);
            $authenticationUtils = $this->get('security.authentication_utils');
 
@@ -62,54 +58,6 @@ class SecurityController extends Controller
                'last_username' => $authenticationUtils->getLastUsername(),
                'error'         => $authenticationUtils->getLastAuthenticationError(),
            ));
-       }
-    public function indexAction()
-    {
-
-
-
-        return $this->render('PWUserBundle:profile:profile.html.twig');
-    }
-
-    public function profileAction(Request $request)
-    {
-        $training = new Training();
-        $form = $this->get('form.factory')->create(new TrainingType(), $training);
-
-        if ($form->handleRequest($request)->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($training);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
-
-            return $this->redirect($this->generateUrl('pw_user_test'));
-        }
-
-        return $this->render('PWPortfolioBundle:Forms:training.html.twig', array(
-            'form' => $form->createView(),
-        ));
-    }
-    public function catalogueAction()
-    {
-        if (!$this->get('security.context')->isGranted('ROLE_AUTEUR')) {
-            // Sinon on déclenche une exception « Accès interdit »
-            throw new AccessDeniedException('Accès limité aux auteurs.');
-        }
-        $listAdverts = array(
-            array('id' => 2, 'titre' => 'EASY PORTFOLIO', 'user' => 'Bobby','description' => 'Bienvenu sur mon ePortFolio'),
-            array('id' => 5, 'titre' => 'Medium Portfolio', 'user' => 'Jean Mi', 'description' => 'Jaime les enfant'),
-            array('id' => 5, 'titre' => 'Medium Portfolio', 'user' => 'Jean Mi', 'description' => 'Jaime les enfant'),
-            array('id' => 5, 'titre' => 'Medium Portfolio', 'user' => 'Jean Mi', 'description' => 'Jaime les enfant'),
-            array('id' => 5, 'titre' => 'Medium Portfolio', 'user' => 'Jean Mi', 'description' => 'Jaime les enfant'),
-            array('id' => 5, 'titre' => 'Medium Portfolio', 'user' => 'Jean Mi', 'description' => 'Jaime les enfant'),
-            array('id' => 5, 'titre' => 'Medium Portfolio', 'user' => 'Jean Mi', 'description' => 'Jaime les enfant'),
-            array('id' => 9, 'titre' => 'hard portfolio', 'user' => 'Poney', 'description' => 'WHUUUUhhuuuuu')
-        );
-
-        return $this->render('PWUserBundle:Catalogue:catalogue.html.twig', array(
-            'listAdverts' => $listAdverts
-        ));
     }
 
     public function connexionAction(Request $request)

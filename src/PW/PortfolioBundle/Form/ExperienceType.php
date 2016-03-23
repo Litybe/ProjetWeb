@@ -15,9 +15,9 @@ class ExperienceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('job',        'text')
-            ->add('firm',       'text')
-            ->add('mission',    'text')
+            ->add('ExperienceJob',        'text')
+            ->add('ExperienceCompagny',       'text')
+            ->add('ExperienceDetail',    'text')
             ->add('validate',   'submit')
         ;
     }

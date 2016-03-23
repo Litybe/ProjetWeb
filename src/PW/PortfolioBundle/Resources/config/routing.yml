@@ -24,7 +24,7 @@ pw_portfolio_apercu:
 
 pw_portfolio_competence:
     path:    /portfolio/competence
-    defaults: { _controller: PWPortfolioBundle:Portfolio:competence }
+    defaults: { _controller: PWPortfolioBundle:Portfolio:training }
 
 pw_portfolio_experience:
     path:    /portfolio/experience

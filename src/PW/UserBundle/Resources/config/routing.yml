@@ -16,5 +16,5 @@ pw_user_connexion:
     defaults: { _controller: PWUserBundle:Security:login}
 
 pw_user_test:
-    pattern: /User/TESTMONNEGRO
+    pattern: /User/add
     defaults: {_controller: PWUserBundle:View:add}
