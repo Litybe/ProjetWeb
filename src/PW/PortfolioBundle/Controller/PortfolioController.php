@@ -2,6 +2,7 @@
 
 namespace PW\PortfolioBundle\Controller;
 
+use PW\PDO\QueryExecution;
 use PW\PortfolioBundle\Entity\Experience;
 use PW\PortfolioBundle\Entity\Project;
 use PW\PortfolioBundle\Form\ExperienceType;
@@ -13,6 +14,10 @@ use PW\PortfolioBundle\Entity\Training;
 
 class PortfolioController extends Controller
 {
+    private $pdo;
+    public function __construct(){
+        $this->pdo = new QueryExecution();
+    }
     public function testAction(Request $request)
     {
         $training = new Training();
@@ -138,4 +143,11 @@ class PortfolioController extends Controller
         return $this->render('PWPortfolioBundle:Information:Projet.html.twig',array('formProject'=>$formProject->createView()));
     }
 
+    public function setQuery($name,$array){
+        $em = $this->getDoctrine()->getManager()->getConnection();
+        $query= $em->prepare($this->pdo->getProcedureString($name,$array));
+        $query->execute($array);
+        return $query;
+
+    }
 }
