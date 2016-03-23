@@ -24,19 +24,37 @@ class Skill
     /**
      * @var string
      *
-     * @ORM\Column(name="SkillName", type="string", length=255, unique=true)
+     * @ORM\Column(name="Skill_Name", type="string", length=255, unique=true)
      */
     private $skillName;
 
     /**
-     * @var integer
+     * @var int
+     * @ORM\Column(name="Skill_Mastery", type="integer", length=255, unique=false)
      */
     private $skillMastery;
 
     /**
-     * @var integer
+     * @var int
+     *@ORM\Column(name="Skill_Order", type="integer", length=255, unique=false, nullable = true)
+    */
+    private $skillOrder;
+
+    /**
+     * @return int
      */
-    private $idOrder;
+    public function getSkillOrder()
+    {
+        return $this->skillOrder;
+    }
+
+    /**
+     * @param int $skillOrder
+     */
+    public function setSkillOrder($skillOrder)
+    {
+        $this->skillOrder = $skillOrder;
+    }
 
     /**
      * Get id
@@ -93,23 +111,5 @@ class Skill
     {
         return $this->skillMastery;
     }
-
-
-    /**
-     * @return int
-     */
-    public function getIdOrder()
-    {
-        return $this->idOrder;
-    }
-
-    /**
-     * @param int $idOrder
-     */
-    public function setIdOrder($idOrder)
-    {
-        $this->idOrder = $idOrder;
-    }
-
 
 }

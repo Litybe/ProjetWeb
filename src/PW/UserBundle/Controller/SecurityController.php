@@ -130,48 +130,6 @@ class SecurityController extends Controller
         ));
     }
 
-    public function testAction(Request $request)
-    {
-        $skill = new  Skill();
-        $skillGroup = new SkillGroup();
-        $form = $this->createForm(SkillType::class, $skill);
-        $formGroup = $this->createForm(SkillGroupType::class, $skillGroup);
-        $em = $this->getDoctrine()->getManager();
-        $listSkills = array(
-            array('id' => 2, 'nameSkill' => 'PHP', 'skillMastery' => '1'),
-            array('id' => 3, 'nameSkill' => 'Javascript', 'skillMastery' => '2'),
-            array('id' => 4, 'nameSkill' => 'Jquery', 'skillMastery' => '3'),
-            array('id' => 5, 'nameSkill' => 'JB', 'skillMastery' => '5'),
-            array('id' => 6, 'nameSkill' => 'Word', 'skillMastery' => '4'),
-            array('id' => 7, 'nameSkill' => 'Menuiserie', 'skillMastery' => '1'),
-            array('id' => 8, 'nameSkill' => 'Lancé de bigornos', 'skillMastery' => '3'),
-            array('id' => 9, 'nameSkill' => 'Trotinette', 'skillMastery' => '3'),
-            array('id' => 9, 'nameSkill' => 'Equitation sur licornes', 'skillMastery' => '5')
-        );
-        // La méthode findAll retourne toutes les catégories de la base de données
-
-        $listSkillGroup = $em->getRepository('PWPortfolioBundle:SkillGroup')->findAll();
-
-
-        if ($form->isValid()) {
-            // On l'enregistre notre objet $skill dans la base de données, par exemple
-            $em->persist($skill);
-            $em->flush();
-            $request->getSession()->getFlashBag()->add('notice', 'Compétence bien enregistrée.');
-
-            // On redirige vers la page de visualisation de l'annonce nouvellement créée
-            return $this->redirect($this->generateUrl('pw_user_test'));
-        }
-
-
-
-        return $this->render('PWUserBundle:test:test.html.twig', array(
-            'form' => $form->createView(),
-            'formGroup' => $formGroup->createView(),
-            'listSkills' => $listSkills
-        ));
-    }
-
     public function portfolioAction()
     {
         /*$User = array('LastName'=> 'Bobby', 'FirstName'=>'Dimitri','Email'=> 'Libecorne@gmail.com', 'cellNumber'=> '0670936118');

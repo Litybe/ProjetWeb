@@ -15,7 +15,12 @@ PW\PortfolioBundle\Entity\Skill:
             column: Skill_Name
 
         skillMastery:
-            type: string
+            type: integer
             length: 255
             column: Skill_Mastery
+
+        skillOrder:
+            type: integer
+            length: 255
+            column: Skill_Order
     lifecycleCallbacks: {  }

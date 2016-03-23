@@ -24,6 +24,12 @@ class SkillType extends AbstractType
                     'step' => 1,
                     'default' => 1
                 )))
+            ->add('skillOrder',     'integer', array(
+                'attr' => array(
+                    'min' => 1,
+                    'step' => 1,
+                    'default' => 1
+                )))
             ->add('Ajouter',       'submit')
         ;
     }

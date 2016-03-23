@@ -26,12 +26,22 @@
             </div>
         </div>
 
+        {# Idem pour un autre champ. #}
+        <div class="form-group">
+            {{ form_label(form.skillOrder, "Ordre d'importance", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {{ form_errors(form.skillOrder) }}
+            <div class="col-sm-4">
+                {{ form_widget(form.skillOrder, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
 
 
 {# Génération du label + error + widget pour un champ #}
 
         {{ form_row(form.skillName) }}
         {{ form_row(form.skillMastery) }}
+        {{ form_row(form.skillOrder) }}
 
         {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
         {{ form_widget(form.Ajouter, {'attr': {'class': 'col-sm-offset-3 btn btn-primary'}}) }}
@@ -45,36 +55,16 @@
         {{ form_end(form) }}
     </div>
         {# Affichage des compétences #}
-    <ul>
-        {% for skill in listSkills %}
-            <li class="col-sm-5">
-                <div >{{ skill.nameSkill }}</div>
-                {% for mastery in 1..skill.skillMastery %}
-                    <span class="glyphicon glyphicon-ok-sign" style="font-size: 1.5em; color:#0b7e00"></span>
-                {% endfor %}
-                {% if skill.skillMastery < 5 %}
-                    {% for mastery in 1..5-skill.skillMastery %}
-                        <span class="glyphicon glyphicon-ok-circle" style="font-size: 1.5em; color:#0b7e00"></span>
-                    {% endfor %}
-                {% endif %}
-
-            </li>
-        {% else %}
-            <li>Pas (encore !) de compétences</li>
-        {% endfor %}
-
-        $skillsList
-    </ul>
 
     <ul>
         {% for skill in skills %}
             <li class="col-sm-5">
-                <div >{{ skill.skillName }}</div>
-                {% for mastery in 1..skill.skillMastery %}
+                <div >{{ skill.Skill_Name }}</div>
+                {% for mastery in 1..skill.Skill_Mastery %}
                     <span class="glyphicon glyphicon-ok-sign" style="font-size: 1.5em; color:#0b7e00"></span>
                 {% endfor %}
-                {% if skills.skillMastery < 5 %}
-                    {% for mastery in 1..5-skill.skillMastery %}
+                {% if skill.Skill_Mastery < 5 %}
+                    {% for mastery in 1..5-skill.Skill_Mastery %}
                         <span class="glyphicon glyphicon-ok-circle" style="font-size: 1.5em; color:#0b7e00"></span>
                     {% endfor %}
                 {% endif %}

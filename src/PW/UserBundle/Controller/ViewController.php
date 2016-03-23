@@ -110,7 +110,7 @@ class ViewController extends controller
     {
 
 
-           $listSkills = array(
+    /*       $listSkills = array(
                array('id' => 2, 'nameSkill' => 'PHP', 'skillMastery' => '1'),
                array('id' => 3, 'nameSkill' => 'Javascript', 'skillMastery' => '2'),
                array('id' => 4, 'nameSkill' => 'Jquery', 'skillMastery' => '3'),
@@ -120,21 +120,32 @@ class ViewController extends controller
                array('id' => 8, 'nameSkill' => 'Lancé de bigornos', 'skillMastery' => '3'),
                array('id' => 9, 'nameSkill' => 'Trotinette', 'skillMastery' => '3'),
                array('id' => 9, 'nameSkill' => 'Equitation sur licornes', 'skillMastery' => '5')
-           );
+           ); */
 
-       /* $em = $this->getDoctrine()->getManager()->getConnection();
-        $query = $em->prepare($this->pdo->getProcedureString('skill_Select', null));
-
-        $skillsList = array($query->execute()); */
-
-        $param = array("skill");
         $em = $this->getDoctrine()->getManager()->getConnection();
-        $query = $em->prepare($this->pdo->getProcedureString('select_Skill', $param));
-        $query->execute($param);
+        $query = $em->prepare('CALL PS_SELECT_SKILLS');
 
-        $skills = $this->getDoctrine()
-            ->getRepository('PWPortfolioBundle:Skill')
-            ->findAll();
+
+        $skill = new  Skill();
+        $form = $this->createForm(SkillType::class, $skill);
+
+
+        if ($form->handleRequest($request)->isValid()) {
+
+            $param = array(
+                $skill->getSkillName(),
+                $skill->getSkillMastery(),
+                $skill->getSkillOrder()
+            );
+            $em = $this->getDoctrine()->getManager()->getConnection();
+            $sql = $em->prepare($this->pdo->getProcedureString('PS_INSERT_SKILL', $param));
+            $sql->execute($param);
+
+            return $this->redirectToRoute('pw_user_test', array());
+        }
+
+        $query->execute();
+        $skills = $query->fetchAll();
 
         if (!$skills) {
             throw $this->createNotFoundException(
@@ -142,25 +153,8 @@ class ViewController extends controller
             );
         }
 
-        $skill = new  Skill();
-        $form = $this->createForm(SkillType::class, $skill);
-
-        if ($form->handleRequest($request)->isValid()) {
-
-            $param = array(
-                $skills->getSkillName(),
-                $skills->getSkillMastery(),
-            );
-            $em = $this->getDoctrine()->getManager()->getConnection();
-            $query = $em->prepare($this->pdo->getProcedureString('addSkill', $param));
-            $query->execute($param);
-
-            return $this->redirectToRoute('pw_user_test');
-        }
-
         return $this->render('PWUserBundle:test:test.html.twig', array(
             'form' => $form->createView(),
-            'listSkills' => $listSkills,
             'skills' => $skills
         ));
 
